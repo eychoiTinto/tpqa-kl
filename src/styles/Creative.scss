@@ -1,0 +1,145 @@
+@use "variables" as *;
+
+.creative-cr {
+  background-color: rgba(15, 15, 15, 1);
+  color: #ffffff;
+  min-height: 150vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding: 0px 160px 0px 120px;
+
+  .creative-content-cr,
+  .creative-content-cr-bold {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: inherit;
+  }
+
+  .creative-content-cr {
+    gap: 310px;
+  }
+
+  .creative-content-cr-bold {
+    gap: 358px;
+  }
+
+  .text-content-cr {
+    h2 {
+      font-size: 180px;
+      font-weight: 500;
+      margin: 0;
+      line-height: 171px;
+      margin-bottom: 60px;
+    }
+
+    .description-cr {
+      padding-left: 10px;
+      .highlight {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 43.2px;
+        color: rgba(255, 255, 255, 0.5);
+        font-family: $font-pretendard;
+        margin: 0;
+
+        &.highlight-cr {
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+
+      .hyfen {
+        margin-top: -8px;
+      }
+    }
+  }
+
+  .image-container-cr {
+    flex-shrink: 0;
+  }
+}
+
+// Responsive design
+@media (max-width: 1440px) {
+  .creative-cr {
+    padding: 0px 120px 160px 90px;
+
+    .creative-content-cr {
+      gap: 200px;
+    }
+    .text-content-cr {
+      h2 {
+        font-size: 100px;
+        line-height: 130px;
+        margin-bottom: 40px;
+      }
+      .description-cr {
+        p {
+          font-size: 20px;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .creative-cr {
+    padding: 4rem 1.5rem;
+    min-height: 70vh;
+  }
+  .creative-content-cr {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+  .text-content-cr {
+    h2 {
+      font-size: 4rem;
+      line-height: 4rem;
+      margin-bottom: 30px;
+    }
+    .description-cr {
+      p {
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .creative-cr {
+    padding: 4rem 1.5rem;
+    min-height: 60vh;
+  }
+  .creative-content-cr {
+    gap: 40px;
+  }
+  .text-content-cr {
+    h2 {
+      font-size: 3rem;
+      line-height: 3rem;
+      margin-bottom: 20px;
+    }
+    .description-cr {
+      p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+  }
+}

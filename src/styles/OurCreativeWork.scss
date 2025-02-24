@@ -1,0 +1,390 @@
+@use "variables" as *;
+
+.creative-work-ocr {
+  background-color: rgba(15, 15, 15, 1);
+  color: #ffffff;
+  font-family: $font-base;
+
+  .content-ocr-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  .content-ocr {
+    display: inline-block;
+    h2 {
+      font-size: 180px;
+      font-weight: 500;
+      color: rgba(255, 220, 0, 1);
+      margin: 0px 0px 0px 110px;
+      line-height: 171px;
+      white-space: nowrap;
+    }
+  }
+
+  .process-section-ocr {
+    .process-header-ocr {
+      margin: 240px 150px 0px 160px;
+      display: flex;
+      justify-content: start;
+      gap: 380px;
+      align-items: start;
+      padding-bottom: 120px;
+      border-bottom: 2px solid rgba(255, 255, 255, 1);
+
+      h3 {
+        font-size: 120px;
+        font-weight: 500;
+        margin: 0;
+        line-height: 114px;
+      }
+
+      .process-intro-ocr {
+        p {
+          margin: 0;
+          line-height: 40px;
+
+          &.en-ocr {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 80px;
+          }
+
+          &.ko-ocr {
+            color: rgba(255, 255, 255, 1);
+            font-size: 20px;
+            font-family: $font-pretendard;
+          }
+        }
+      }
+    }
+  }
+
+  .process-steps-ocr {
+    margin: 0 160px 0 160px;
+
+    .border-top {
+      border-top: 2px solid rgba(255, 255, 255, 1);
+    }
+
+    .step-ocr {
+      padding: 120px 226px 140px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+
+      h4 {
+        font-size: 40px;
+        font-weight: 600;
+        margin: 0;
+        line-height: 52px;
+      }
+
+      .step-content-ocr {
+        .step-number-ocr {
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 31px;
+          margin: 0 0 2rem 0;
+          font-family: $font-pretendard;
+        }
+
+        .step-description-ocr {
+          p {
+            margin: 0;
+            line-height: 40px;
+            font-weight: 300;
+            font-family: $font-pretendard;
+
+            &.ko-ocr {
+              color: rgba(255, 255, 255, 1);
+              font-size: 20px;
+            }
+
+            &.en-ocr {
+              margin-top: 24px;
+              font-size: 20px;
+              font-family: $font-base;
+              text-transform: capitalize;
+            }
+          }
+        }
+      }
+    }
+
+    .step-ocr:nth-child(2) {
+      padding: 120px 156px 140px 20px;
+    }
+
+    .step-ocr:nth-child(3) {
+      padding: 120px 153px 140px 20px;
+    }
+
+    .step-ocr:nth-child(4) {
+      padding: 120px 160px 140px 20px;
+    }
+
+    .step-ocr:nth-child(5) {
+      padding: 120px 110px 140px 20px;
+    }
+
+    .step-ocr:nth-child(6) {
+      padding: 120px 160px 140px 20px;
+    }
+
+    .step-ocr:nth-child(7) {
+      padding: 120px 205px 140px 20px;
+    }
+
+    .step-ocr:nth-child(8) {
+      padding: 120px 160px 140px 20px;
+    }
+
+    .step-ocr:nth-child(9) {
+      padding: 120px 110px 140px 20px;
+    }
+
+    .step-ocr:nth-child(10) {
+      padding: 120px 160px 140px 20px;
+    }
+
+    .step-ocr:nth-child(11) {
+      padding: 120px 120px 140px 20px;
+    }
+  }
+}
+
+.border-b {
+  border-bottom: 2px solid rgba(255, 255, 255, 1);
+}
+
+.fade-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+// Responsive design
+
+@media (max-width: 1440px) {
+  .creative-work-ocr {
+    .content-ocr {
+      h2 {
+        font-size: 140px;
+        line-height: 130px;
+        margin-left: 80px;
+      }
+    }
+    .process-section-ocr {
+      .process-header-ocr {
+        margin: 180px 200px 80px 120px;
+        h3 {
+          font-size: 100px;
+          line-height: 95px;
+        }
+        .process-intro-ocr {
+          p.en-ocr {
+            font-size: 26px;
+            margin-bottom: 60px;
+          }
+          p.ko-ocr {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .process-steps-ocr {
+      margin: 0 120px;
+      .step-ocr {
+        padding: 100px 180px 120px 15px;
+        h4 {
+          font-size: 36px;
+          line-height: 48px;
+        }
+        .step-content-ocr {
+          .step-number-ocr {
+            font-size: 22px;
+            line-height: 28px;
+            margin-bottom: 1.5rem;
+          }
+          .step-description-ocr {
+            p.ko-ocr {
+              font-size: 18px;
+            }
+            p.en-ocr {
+              font-size: 18px;
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+      .step-ocr:nth-child(2) {
+        padding: 100px 130px 120px 15px;
+      }
+      .step-ocr:nth-child(3) {
+        padding: 100px 127px 120px 15px;
+      }
+      .step-ocr:nth-child(4) {
+        padding: 100px 135px 120px 15px;
+      }
+      .step-ocr:nth-child(5) {
+        padding: 100px 90px 120px 15px;
+      }
+      .step-ocr:nth-child(6),
+      .step-ocr:nth-child(7),
+      .step-ocr:nth-child(8),
+      .step-ocr:nth-child(9),
+      .step-ocr:nth-child(10),
+      .step-ocr:nth-child(11) {
+        padding: 100px 135px 120px 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .creative-work-ocr {
+    .content-ocr {
+      h2 {
+        font-size: 100px;
+        line-height: 95px;
+        margin-left: 60px;
+      }
+    }
+    .process-section-ocr {
+      .process-header-ocr {
+        margin: 120px 150px 60px 100px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        h3 {
+          font-size: 80px;
+          line-height: 75px;
+        }
+        .process-intro-ocr {
+          p.en-ocr {
+            font-size: 22px;
+            margin-bottom: 40px;
+          }
+          p.ko-ocr {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .process-steps-ocr {
+      margin: 0 80px;
+      .step-ocr {
+        flex-direction: column;
+        align-items: center;
+        padding: 80px 100px 100px 10px;
+        h4 {
+          font-size: 32px;
+          line-height: 40px;
+        }
+        .step-content-ocr {
+          .step-number-ocr {
+            font-size: 20px;
+            line-height: 26px;
+            margin-bottom: 1rem;
+          }
+          .step-description-ocr {
+            p.ko-ocr {
+              font-size: 16px;
+            }
+            p.en-ocr {
+              font-size: 16px;
+              margin-top: 16px;
+            }
+          }
+        }
+      }
+      .step-ocr:nth-child(2),
+      .step-ocr:nth-child(3),
+      .step-ocr:nth-child(4),
+      .step-ocr:nth-child(5),
+      .step-ocr:nth-child(6),
+      .step-ocr:nth-child(7),
+      .step-ocr:nth-child(8),
+      .step-ocr:nth-child(9),
+      .step-ocr:nth-child(10),
+      .step-ocr:nth-child(11) {
+        padding: 80px 100px 100px 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .creative-work-ocr {
+    padding: 4rem 1.5rem;
+    .content-ocr {
+      h2 {
+        font-size: 3rem;
+        line-height: 3rem;
+        margin-left: 0;
+        text-align: center;
+      }
+    }
+    .process-section-ocr {
+      .process-header-ocr {
+        margin: 80px 1.5rem 40px 1.5rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        h3 {
+          font-size: 2.5rem;
+          line-height: 2.5rem;
+        }
+        .process-intro-ocr {
+          p.en-ocr {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+          }
+          p.ko-ocr {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    .process-steps-ocr {
+      margin: 0 1.5rem;
+      .step-ocr {
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 1.5rem;
+        h4 {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+        .step-content-ocr {
+          .step-number-ocr {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            margin-bottom: 1rem;
+          }
+          .step-description-ocr {
+            p.ko-ocr {
+              font-size: 1rem;
+            }
+            p.en-ocr {
+              font-size: 1rem;
+              margin-top: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
