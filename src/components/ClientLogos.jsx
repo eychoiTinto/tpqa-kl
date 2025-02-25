@@ -48,7 +48,7 @@ const rowVariants = {
   visible: (index) => ({
     opacity: 1,
     transition: {
-      delay: index * 0.2,
+      delay: index * 1,
       duration: 0.8,
       ease: "easeInOut",
     },
@@ -66,7 +66,7 @@ export default function ClientLogos() {
             custom={rowIndex}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ amount: 0.2 }}
             variants={rowVariants}
           >
             {row.map((position, colIndex) => {

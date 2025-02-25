@@ -9,14 +9,13 @@
 
   .background-text-pff {
     position: absolute;
-    top: -155px;
+    top: -200px;
     margin-right: -150px;
     right: 0;
     font-size: 200px;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.1);
     line-height: 247px;
-    text-transform: uppercase;
     pointer-events: none;
   }
 
@@ -99,7 +98,6 @@
     width: 240px;
     height: 68px;
     border-radius: 90px;
-    padding: 22px 60px 22px 60px;
     font-size: 20px;
     line-height: 24px;
     font-family: $font-poppins;

@@ -37,7 +37,7 @@ export default function Hero() {
       }
     };
 
-    document.addEventListener("click", handleClick);
+    // document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
   }, []);
 
@@ -203,8 +203,17 @@ export default function Hero() {
           WORK BETTER
         </motion.h1>
 
-        <motion.div className="scroll-down" style={{ opacity }}>
-          <h1>SCROLL DOWN </h1>
+        <motion.div
+          className="scroll-down"
+          style={{ opacity }}
+          onClick={() => {
+            const heroSection = ref.current;
+            if (heroSection && heroSection.nextElementSibling) {
+              heroSection.nextElementSibling.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
+          <h1>SCROLL DOWN</h1>
           <svg
             width="12"
             height="16"
