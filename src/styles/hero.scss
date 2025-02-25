@@ -1,316 +1,71 @@
 .hero {
-  min-height: calc((100vh - $header-height) - 70px);
-  width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.hero-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 3.125vw;
-  // margin: 85px 240px 40px 0px;
-}
-
-.contents {
-  font-size: 200px;
-  font-weight: 500;
-  line-height: 190px;
-  margin: 0;
-  color: rgba(15, 15, 15, 1);
-}
-
-// contact button styles
-
-.contact-button {
-  background-color: rgba(15, 15, 15, 1);
-  color: white;
-  width: 380px;
-  height: 126px;
-  border: none;
-  border-radius: 90px;
-  padding: 0px 15px;
-  font-size: 45px;
-  font-weight: 500;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.button-content {
-  position: absolute;
-  width: 83%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px 0 50px;
-  will-change: transform, opacity;
-}
-
-.hover-content {
-  background-color: rgba(15, 15, 15, 1);
-  padding: 0 50px 0 15px !important;
-}
-
-.button-text {
-  font-size: 45px;
-  font-weight: 600;
-  font-family: $font-poppins;
-}
-
-.gradient-text {
-  background: linear-gradient(270deg, #f2b813 10%, #ffdc00 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
-
-.arrow {
-  background-color: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.mail {
-  background-color: white;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.hover-content .mail {
-  background: linear-gradient(270deg, #f2b813 10%, #ffdc00 100%);
-}
-
-.hover-content .button-text {
-  text-align: right;
-  margin-left: 24px;
-}
-
-//  hero content styles
-
-.hero-content {
-  display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: clamp(1.25rem, -2.9038rem + 6.4904vw, 2.9375rem); //47px;
-  gap: 85px;
-  margin-left: 100px;
+  width: 100%;
+  min-height: calc((100vh - $header-height) - 70px);
+  padding-bottom: 32px;
 }
 
-.subtitle {
-  font-size: 26px;
-  text-align: right;
-  line-height: 31px;
-}
+.hero-text-area {
+  display: flex;
+  align-items: center;
+  gap: 2.6041vw;
+  width: calc(100vw - 16.6666vw);
 
-.main-heading {
-  font-size: 200px;
-  font-weight: 500;
-  text-align: center;
-  line-height: 190px;
-  margin: 0;
-}
+  &:nth-child(1) {
+    justify-content: flex-start;
+    margin-bottom: 2.0833vw;
+  }
+  &:nth-child(2) {
+    justify-content: flex-end;
+    margin-bottom: 2.3958vw;
+  }
+  &:nth-child(3) {
+    justify-content: center;
+  }
 
-.main-heading-2 {
-  font-size: 200px;
-  font-weight: 500;
-  text-align: center;
-  line-height: 190px;
-  margin: 0;
+  .hero-text {
+    font-size: 9.375vw;
+    font-weight: 500;
+    line-height: 8.90625vw;
+    color: rgba(15, 15, 15, 1);
+  }
+
+  .subtitle {
+    padding-right: 2.0833vw;
+
+    p {
+      text-align: right;
+      font-size: 1.25vw;
+      font-weight: 400;
+      line-height: 120%;
+      text-transform: uppercase;
+
+      &:not(:last-child) {
+        margin-bottom: 0.4166vw;
+      }
+    }
+  }
 }
 
 .scroll-down {
   position: absolute;
-  bottom: 1rem;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 1rem;
-  cursor: pointer;
+  gap: 10px;
+  cursor: default;
 
-  h1 {
+  .text {
     margin: 0;
     font-family: $font-pretendard;
     font-weight: 400;
     font-size: 18px;
     line-height: 32px;
-  }
-}
-
-.hero-second {
-  // min-height: 100vh;  ///This is duplicate code. The original code is in the SecondHero.scss file.
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  transition: margin-top 0.5s ease-in-out;
-
-  &.scrolled {
-    margin-top: 90px;
-  }
-
-  .hero-image-second {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-
-    img {
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
-    }
-  }
-
-  .hero-content-second {
-    max-width: 1000px;
-    margin-top: 50px;
-    text-align: center;
-
-    p {
-      font-family: $font-pretendard;
-      line-height: 32px;
-      color: rgba(15, 15, 15, 1);
-      font-weight: 400;
-      font-size: 18px;
-      opacity: 0.7;
-    }
-  }
-}
-
-@media (max-width: 1024px) {
-
-}
-
-// responsive styles
-@media (max-width: 1440px) {
-  .hero {
-    min-height: calc((100vh - 80px) - 83px);
-  }
-  .hero-nav {
-    margin: clamp(3.125rem, 1.5865rem + 2.4038vw, 3.75rem) 150px clamp(1.25rem, -0.2885rem + 2.4038vw, 1.875rem) 0px;
-    gap: 40px;
-  }
-
-  .contents {
-    font-size: 9.375vw; // 140px
-    line-height: 8.8541vw; // 130px;
-  }
-
-  .contact-button {
-    width: 300px;
-    height: 100px;
-    font-size: 35px;
-  }
-
-  .button-content {
-    padding: 0 10px 0 40px;
-  }
-
-  .button-text {
-    font-size: 35px;
-  }
-
-  .arrow {
-    width: 70px;
-    height: 70px;
-  }
-
-  .hero-content {
-    gap: 50px;
-    margin-left: 50px;
-    // margin-bottom: 20px;
-  }
-
-  .subtitle {
-    font-size: 20px;
-    line-height: 24px;
-  }
-
-  .main-heading,
-  .main-heading-2 {
-    font-size: clamp(7.5rem, 4.4231rem + 4.8077vw, 8.75rem);// 140px;
-    line-height: clamp(6.25rem, 4.7115rem + 2.4038vw, 6.875rem); // 130px;
-  }
-
-  .scroll-down {
-    bottom: 1.5rem;
-    font-size: 1.2rem;
-    gap: 0.8rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .hero-nav {
-    margin: 40px 100px 20px 0px;
-    gap: 30px;
-  }
-
-  .contents {
-    font-size: 100px;
-    line-height: 90px;
-  }
-
-  .contact-button {
-    width: 250px;
-    height: 80px;
-    font-size: 28px;
-  }
-
-  .button-content {
-    padding: 0 8px 0 30px;
-  }
-
-  .button-text {
-    font-size: 28px;
-  }
-
-  .arrow {
-    width: 50px;
-    height: 50px;
-  }
-
-  .hero-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    margin-left: 0;
-  }
-
-  .subtitle {
-    font-size: 16px;
-    line-height: 20px;
-    text-align: center;
-  }
-
-  .main-heading,
-  .main-heading-2 {
-    font-size: 100px;
-    line-height: 90px;
-  }
-
-  .scroll-down {
-    bottom: 1rem;
-    font-size: 1rem;
-    gap: 0.6rem;
   }
 }
