@@ -1,36 +1,22 @@
-import { motion } from "framer-motion";
+"use client";
+import React, { forwardRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import img from "../assets/img-1.png";
 import "../styles/SecondHero.scss";
 
-const HeroSecond = () => {
+const HeroSecond = forwardRef((props, ref) => {
+  const { scrollY } = useScroll();
+
+  const scale = useTransform(
+    scrollY,
+    [-70, 600],
+    [0.797619, 1]
+  );
+
   return (
-    <section className="hero-second">
-      <motion.div
-        className="hero-image-second"
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ amount: 0.5 }} // Trigger animation when 50% enters viewport
-      >
-        <motion.img
-          src={img}
-          alt="Hero"
-          variants={{
-            offscreen: {
-                width: "70vw",
-                transition: {
-                    duration: 0.7, // Animation duration
-                    ease: "circOut",
-                },
-            },
-            onscreen: {
-              width: "87.5vw", // Expands to 85% of the viewport width
-              transition: {
-                  duration: 0.7, // Animation duration
-                  ease: "circOut",
-              },
-            },
-          }}
-        />
+    <section className="hero-second" ref={ref}>
+      <motion.div className="hero-image-second" style={{ scale }}>
+        <motion.img src={img} alt="Hero" />
       </motion.div>
       <div className="hero-content-second">
         <p>
@@ -44,6 +30,6 @@ const HeroSecond = () => {
       </div>
     </section>
   );
-};
+});
 
 export default HeroSecond;

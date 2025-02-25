@@ -1,8 +1,9 @@
+
+import React, { forwardRef, useState, useEffect } from "react";
 import "../styles/Creative.scss";
 import img from "../assets/c-img.png";
 import img2 from "../assets/c-img2.png";
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
 
 const contentVariants = {
   enter: (direction) => ({
@@ -18,8 +19,7 @@ const contentVariants = {
     opacity: 0,
   }),
 };
-
-function Creative() {
+const Creative = forwardRef((props, ref) => {
   const [activeContent, setActiveContent] = useState("creative");
 
   useEffect(() => {
@@ -41,6 +41,7 @@ function Creative() {
 
   return (
     <motion.section
+      ref={ref}
       id="creative-section"
       className="creative-cr">
       {/* <AnimatePresence
@@ -124,6 +125,6 @@ function Creative() {
       </div>
     </motion.section>
   );
-}
+});
 
 export default Creative;
