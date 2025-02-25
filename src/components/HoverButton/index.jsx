@@ -4,139 +4,48 @@ import "./module.style.scss";
 const HoverButton = () => {
   return (
     <a href="mailto:hello@keynergylab.com">
-      <motion.button
-        className="at_contact-button"
-        initial={false}
-        whileHover="hover"
-        animate="initial"
-      >
+      <div className="at_contact-button">
         {/* Initial Button Content */}
-        <motion.div
-          className="at_button-content"
-        >
+        <div className="at_button-content">
           {/* Initial Content */}
-          <motion.span
-            className="at_button-text"
-            variants={{
-              initial: {
-                opacity: 1,
-                left: 20,
-                x: 0,
-                transition: {
-                  duration: 0.5,
-                  ease: "easeInOut",
-                },
-              },
-              hover: {
-                opacity: 0,
-                left: 0,
-                x: "-100%",
-                transition: {
-                  duration: 0.5,
-                  ease: "easeInOut",
-                },
-              },
-            }}
-          >contact</motion.span>
-
-          {/* Icon */}
-          <motion.span
-            className="at_icon"
-            variants={{
-              initial: {
-                right: 15,
-                background: "white",
-                transition: {
-                  duration: 0.5,
-                  ease: "easeInOut",
-                },
-              },
-              hover: {
-                left: 15,
-                background: "linear-gradient(270deg, #f2b813 10%, #ffdc00 100%)",
-                transition: {
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }
-              },
-            }}
-          >
-            {/* Initial Icon */}
-            <motion.svg
-              width="30"
-              height="30"
-              viewBox="0 0 30 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              variants={{
-                initial: {
-                  opacity: 1,
-                  visibility: "visible",
-                },
-                hover: {
-                  opacity: 0,
-                  visibility: "hidden",
-                },
-              }}
-            >
-              <path
-                d="M22.8281 16.875H0V13.125H22.8281L12.3281 2.625L15 0L30 15L15 30L12.3281 27.375L22.8281 16.875Z"
-                fill="#0F0F0F"
-              />
-            </motion.svg>
-
-            {/* Hover Icon */}
-            <motion.svg
-              width="36"
-              height="33"
-              viewBox="0 0 36 33"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              variants={{
-                initial: {
-                  opacity: 0,
-                  visibility: "hidden",
-                },
-                hover: {
-                  opacity: 1,
-                  visibility: "visible",
-                },
-              }}
-            >
-              <path
-                d="M17 15.6665L3.66671 7.33317V23.9998H18.6667V27.3332H0.333374V0.666504H33.6667V15.6665H30.3334V7.33317L17 15.6665ZM17 12.3332L30.3334 3.99984H3.66671L17 12.3332ZM28.6667 32.3332L26.3334 29.9998L28.9584 27.3332H22V23.9998H28.9584L26.2917 21.3332L28.6667 18.9998L35.3334 25.6665L28.6667 32.3332ZM3.66671 7.33317V25.6665V15.6665V15.7915V3.99984V7.33317Z"
-                fill="#0F0F0F"
-              />
-            </motion.svg>
-          </motion.span>
-
+          <span className="at_button-text">contact</span>
+        </div>
+        <div className="at_button-content hover">
           {/* Hover Content */}
-          <motion.span
-            className="at_button-text at_gradient-text"
-            variants={{
-              initial: {
-                opacity: 0,
-                left: "110%",
-                // x: "100%",
-                transition: {
-                  duration: 0.5,
-                  ease: "easeInOut",
-                },
-              },
-              hover: {
-                opacity: 1,
-                left: 125,
-                // x: 115,
-                transition: {
-                  duration: 0.5,
-                  ease: "easeInOut",
-                },
-              },
-            }}
-          >keynargy</motion.span>
+          <span className="at_button-text">keynergy</span>
+        </div>
+        {/* Icon */}
+        <span className="at_icon">
+          {/* Initial Icon */}
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22.8281 16.875H0V13.125H22.8281L12.3281 2.625L15 0L30 15L15 30L12.3281 27.375L22.8281 16.875Z"
+              fill="#0F0F0F"
+            />
+          </svg>
 
-        </motion.div>
-      </motion.button>
+          {/* Hover Icon */}
+          {/* <svg
+            className="hover"
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_1186_4682" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+            <rect width="40" height="40" fill="#0F0F0F"/>
+            </mask>
+            <g mask="url(#mask0_1186_4682)">
+            <path d="M14.0002 15.4667L2.26683 8.13339V22.8001H15.4668V25.7334H-0.666504V2.26672H28.6668V15.4667H25.7335V8.13339L14.0002 15.4667ZM14.0002 12.5334L25.7335 5.20006H2.26683L14.0002 12.5334ZM24.2668 30.1334L22.2135 28.0801L24.5235 25.7334H18.4002V22.8001H24.5235L22.1768 20.4534L24.2668 18.4001L30.1335 24.2667L24.2668 30.1334ZM2.26683 8.13339V24.2667V15.4667V15.5767V5.20006V8.13339Z" fill="#0F0F0F"/>
+            </g>
+          </svg> */}
+        </span>
+      </div>
     </a>
   )
 }

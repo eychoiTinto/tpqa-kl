@@ -15,11 +15,11 @@ function Home() {
       <Header />
       <Hero />
       <HeroSecond />
+      <Creative />
       <motion.div
-      onViewportEnter={() => setNavbarColor("#0F0F0F")} // Change navbar color
-      onViewportLeave={() => setNavbarColor("#F0F0F0")} // Reset navbar color
-    >
-        <Creative />
+        onViewportEnter={() => setNavbarColor("#0F0F0F")} // Change navbar color
+        onViewportLeave={() => setNavbarColor("#F0F0F0")} // Reset navbar color
+      >
         <OurCreativeWork />
         <ClientLogos />
       </motion.div>

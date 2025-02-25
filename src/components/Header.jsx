@@ -16,9 +16,8 @@ function Header() {
   return (
     <motion.header
       className="navbar"
-      // initial={{ backgroundColor: "#F0F0F0" }}
       animate={{ backgroundColor: navbarColor, transition: "background-color 0.3s ease", borderBottomColor: navbarColor === "#F0F0F0" ? "#0f0f0f4d" : "#ffffff4d" }}
-      viewport={{ amount: 0.9 }}
+      viewport={{ amount: 1 }}
     >
       <nav className="nav-container">
         <Link to="/" className="brand" passHref>

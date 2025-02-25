@@ -4,7 +4,7 @@ import logo from "../assets/logo-black.png";
 
 function HeaderTwo() {
   return (
-    <header className="navbar-black">
+    <header className="navbar navbar-black">
       <nav className="nav-container">
         <Link to="/" className="brand">
           <img src={logo} alt="" />
