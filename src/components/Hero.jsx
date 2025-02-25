@@ -19,6 +19,9 @@ export default function Hero() {
           <h1 className="hero-text">MAKE YOUR</h1>
         </div>
         <div className="hero-text-area">
+          <h1 className="hero-text">
+            WORK BETTER
+          </h1>
         </div>
         <div className="scroll-down">
           <span className="text">SCROLL DOWN</span>
