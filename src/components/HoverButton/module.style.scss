@@ -80,6 +80,9 @@
 
 
 //  hero content styles
+@media (max-width: 1440px) {
+
+}
 
 // responsive styles
 @media (max-width: 1440px) {
@@ -103,6 +106,9 @@
 
   .at_button-text {
     font-size: 35px;
+    &.at_gradient-text {
+      margin-left: -25px !important;
+    }
   }
 }
 

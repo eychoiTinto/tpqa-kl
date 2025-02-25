@@ -4,18 +4,26 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import HeroSecond from "../components/HeroSecond";
 import OurCreativeWork from "../components/OurCreativeWork";
-import { NavbarProvider } from "../contexts/NevbarContext";
+import { motion } from "framer-motion";
+import { useNavbarContext } from "../contexts/NevbarContext";
 
 function Home() {
+  const { setNavbarColor } = useNavbarContext();
+
   return (
-    <NavbarProvider>
+    <>
       <Header />
       <Hero />
       <HeroSecond />
-      <Creative />
-      <OurCreativeWork />
-      <ClientLogos />
-    </NavbarProvider>
+      <motion.div
+      onViewportEnter={() => setNavbarColor("#0F0F0F")} // Change navbar color
+      onViewportLeave={() => setNavbarColor("#F0F0F0")} // Reset navbar color
+    >
+        <Creative />
+        <OurCreativeWork />
+        <ClientLogos />
+      </motion.div>
+    </>
   );
 }
 

@@ -125,7 +125,7 @@ const HoverButton = () => {
               },
               hover: {
                 opacity: 1,
-                left: 100,
+                left: 125,
                 // x: 115,
                 transition: {
                   duration: 0.5,
