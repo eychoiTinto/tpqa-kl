@@ -3,6 +3,7 @@ import img from "../assets/c-img.png";
 import img2 from "../assets/c-img2.png";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
+import { useNavbarContext } from "../contexts/NevbarContext";
 
 const contentVariants = {
   enter: (direction) => ({
@@ -20,6 +21,9 @@ const contentVariants = {
 };
 
 function Creative() {
+  const { setNavbarColor } = useNavbarContext();
+
+
   const [activeContent, setActiveContent] = useState("creative");
 
   useEffect(() => {
@@ -40,7 +44,12 @@ function Creative() {
   }, []);
 
   return (
-    <section id="creative-section" className="creative-cr">
+    <motion.section
+      id="creative-section"
+      className="creative-cr"
+      onViewportEnter={() => setNavbarColor("#0F0F0F")} // Change navbar color
+      onViewportLeave={() => setNavbarColor("#F0F0F0")} // Reset navbar color
+    >
       <AnimatePresence
         initial={false}
         custom={activeContent === "creative" ? -1 : 1}
@@ -141,7 +150,7 @@ function Creative() {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </motion.section>
   );
 }
 

@@ -1,16 +1,17 @@
 .navbar {
   width: 100%;
-  border-bottom: 1px solid rgba(15, 15, 15, 0.3);
+  // border-bottom: 1px solid #0f0f0f4d;
+  border-width: 1px;
+  border-style: solid;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: #f0f0f0;
 }
 
 .navbar-black {
   width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid #ffffff4d;
   background-color: #0f0f0f;
   position: fixed;
   top: 0;
@@ -34,7 +35,7 @@
 }
 
 .nav-link {
-  color: rgba(15, 15, 15, 1);
+  // color: rgba(15, 15, 15, 1);
   text-decoration: none;
   text-transform: uppercase;
   font-size: 18px;

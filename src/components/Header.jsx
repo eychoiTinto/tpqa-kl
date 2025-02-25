@@ -1,24 +1,44 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "../styles/Header.scss";
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
+import { useNavbarContext } from "../contexts/NevbarContext";
+import Logo from "../assets/logos/Logo";
 
 function Header() {
+  const { navbarColor } = useNavbarContext();
+
+  const linkVariants = {
+    initial: { color: "#0F0F0F" },
+    animate: { color: navbarColor === "#F0F0F0" ? "#0F0F0F" : "#F0F0F0" },
+  };
+
   return (
-    <header className="navbar">
+    <motion.header
+      className="navbar"
+      // initial={{ backgroundColor: "#F0F0F0" }}
+      animate={{ backgroundColor: navbarColor, transition: "background-color 0.3s ease", borderBottomColor: navbarColor === "#F0F0F0" ? "#0f0f0f4d" : "#ffffff4d" }}
+      viewport={{ amount: 0.9 }}
+    >
       <nav className="nav-container">
-        <Link to="/" className="brand">
-          <img src={logo} alt="" />
+        <Link to="/" className="brand" passHref>
+            <Logo fill={navbarColor === "#F0F0F0" ? "#0F0F0F" : "#F0F0F0"}/>
+          {/* <img src={logo} alt="" /> */}
         </Link>
+
         <div className="nav-links">
-          <Link to="/portfolio" className="nav-link">
-            Portfolio
+          <Link to="/portfolio" className="nav-link" passHref>
+            <motion.span variants={linkVariants} initial="initial" animate="animate">
+              Portfolio
+            </motion.span>
           </Link>
-          <a href="mailto:hello@keynergylab.com" className="nav-link">
+
+          <motion.a variants={linkVariants} initial="initial" animate="animate" href="mailto:hello@keynergylab.com" className="nav-link">
             Contact
-          </a>
+          </motion.a>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }
 

@@ -1,11 +1,17 @@
 @use "variables" as *;
 
 .hero-second {
-  min-height: 100vh;
+  // min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
+  margin-bottom: 172px;
+
+  .hero-image-second {
+    position: relative;
+    overflow: hidden;
+  }
 
   .hero-content-second {
     max-width: 1000px;
@@ -26,16 +32,8 @@
 // Medium screens (1440px and below)
 @media (max-width: 1440px) {
   .hero-second {
-    min-height: 90vh;
+    // min-height: 90vh;
   }
-
-  .hero-image-second {
-    width: 50%;
-    img {
-      width: 100%;
-    }
-  }
-
   .hero-content-second {
     max-width: 800px;
     margin-top: 40px;
@@ -48,7 +46,7 @@
 
 @media (max-width: 1024px) {
   .hero-second {
-    min-height: 80vh;
+    // min-height: 80vh;
   }
 
   .hero-content-second {

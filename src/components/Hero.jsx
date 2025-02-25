@@ -1,12 +1,13 @@
 import "../styles/hero.scss";
 import { motion, useScroll, useTransform } from "framer-motion";
-import img from "../assets/img-1.png";
+// import img from "../assets/img-1.png";
 import "../styles/SecondHero.scss";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import HoverButton from "./HoverButton";
 
 export default function Hero() {
   const ref = useRef(null);
-  const [isScrolled, setIsScrolled] = useState(false);
+  // const [isScrolled, setIsScrolled] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -41,37 +42,38 @@ export default function Hero() {
     return () => document.removeEventListener("click", handleClick);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroSecond = document.querySelector(".hero-second");
-      if (heroSecond) {
-        const rect = heroSecond.getBoundingClientRect();
-        if (rect.top <= 100) {
-          setIsScrolled(true);
-        } else {
-          setIsScrolled(false);
-        }
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const heroSecond = document.querySelector(".hero-second");
+  //     if (heroSecond) {
+  //       const rect = heroSecond.getBoundingClientRect();
+  //       if (rect.top <= 100) {
+  //         setIsScrolled(true);
+  //       } else {
+  //         setIsScrolled(false);
+  //       }
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <>
       <section className="hero" ref={ref}>
         <motion.div className="hero-nav" style={{ opacity }}>
           <h2 className="contents">CONTENTS</h2>
-          <a href="mailto:hello@keynergylab.com">
-            <motion.button
+          {/* <a href="mailto:hello@keynergylab.com"> */}
+              <HoverButton />
+            {/* <motion.button
               className="contact-button"
               initial={false}
               whileHover="hover"
               animate="initial"
-            >
+            > */}
               {/* Initial Button Content */}
-              <motion.div
+              {/* <motion.div
                 className="button-content"
                 variants={{
                   initial: {
@@ -127,10 +129,10 @@ export default function Hero() {
                     />
                   </svg>
                 </motion.span>
-              </motion.div>
+              </motion.div> */}
 
               {/* Hover Button Content */}
-              <motion.div
+              {/* <motion.div
                 className="button-content hover-content"
                 variants={{
                   initial: {
@@ -186,9 +188,9 @@ export default function Hero() {
                   </svg>
                 </motion.span>
                 <span className="button-text gradient-text">keynergy</span>
-              </motion.div>
-            </motion.button>
-          </a>
+              </motion.div> */}
+            {/* </motion.button> */}
+          {/* </a> */}
         </motion.div>
 
         <motion.div className="hero-content" style={{ opacity }}>
@@ -229,7 +231,7 @@ export default function Hero() {
         </motion.div>
       </section>
 
-      <section className={`hero-second ${isScrolled ? "scrolled" : ""}`}>
+      {/* <section className={`hero-second ${isScrolled ? "scrolled" : ""}`}>
         <div className="hero-image-second">
           <img src={img} alt="" />
         </div>
@@ -243,7 +245,7 @@ export default function Hero() {
             않습니다. 우리는 한 차원 높은 경험을 창조합니다.
           </p>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
