@@ -6,19 +6,26 @@ import img2 from "../assets/c-img2.png";
 
 const Creative = forwardRef((props, ref) => {
   const [translateY, setTranslateY] = useState(0);
+  const [start, setStart] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
       if (!ref.current) return;
 
       const rect = ref.current.getBoundingClientRect();
-      const start = 0;
-      const end = window.innerHeight;
+      const currentScroll = window.scrollY; // 현재 스크롤 위치
 
-      // rect.top이 start(0) ~ end(window.innerHeight) 범위 내에서만 변화
-      if (rect.top >= start && rect.top <= end) {
-        const progress = rect.top / end; // 1 (top) → 0 (bottom)
-        setTranslateY(-progress * 50);
+      if (start === null && rect.top === 0) {
+        setStart(currentScroll); // #creative-section이 처음으로 화면에 보일 때 start 값 설정
+      }
+
+      if (start !== null) {
+        const end = start + window.innerHeight * 1.5; // 변화가 끝날 지점
+
+        if (currentScroll >= start && currentScroll <= end) {
+          const progress = (currentScroll - start) / (end - start); // 0 → 1
+          setTranslateY(progress * -50); // 0 → -50%
+        }
       }
     };
 
@@ -28,7 +35,7 @@ const Creative = forwardRef((props, ref) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [ref]);
+  }, [ref, start]);
 
 
   return (

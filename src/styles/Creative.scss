@@ -1,7 +1,8 @@
 @use "variables" as *;
 
 .creative-cr {
-  position: relative;
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,17 +11,14 @@
   padding-bottom: 100vh;
   color: #ffffff;
   overflow: hidden;
-  box-shadow: 0 0 10px 90px pink inset;
-
-  .creative-inner {
-  }
   
   .creative-scroll-container {
-    position: relative;
     width: 85.4166vw;
     height: 34.6875vw;
     margin-bottom: 0.5208vw;
     overflow: hidden;
+
+    .creative-inner {}
 
     .creative-content-cr {
       display: flex;
