@@ -24,25 +24,27 @@
 
   .process-section-ocr {
     .process-header-ocr {
-      margin: 240px 150px 0px 160px;
+      margin: 12.5vw 7.2916vw 0px;
       display: flex;
       justify-content: start;
-      gap: 380px;
       align-items: start;
-      padding-bottom: 120px;
+      padding-bottom: 6.25vw;
       border-bottom: 2px solid rgba(255, 255, 255, 1);
 
       h3 {
+        width: 60%;
         font-size: 120px;
         font-weight: 500;
-        margin: 0;
+        padding-left: 20px;
         line-height: 114px;
       }
 
       .process-intro-ocr {
+        width: 40%;
         p {
           margin: 0;
-          line-height: 40px;
+          line-height: 200%;
+          word-break: keep-all;
 
           &.en-ocr {
             font-size: 30px;
@@ -61,19 +63,21 @@
   }
 
   .process-steps-ocr {
-    margin: 0 160px 0 160px;
+    margin: 0 7.2916vw;
 
     .border-top {
       border-top: 2px solid rgba(255, 255, 255, 1);
     }
 
     .step-ocr {
-      padding: 120px 226px 140px 20px;
+      padding: 6.25vw 0 7.2916vw;
       display: flex;
-      justify-content: space-between;
+      justify-content: start;
       align-items: start;
 
       h4 {
+        width: 60%;
+        padding-left: 20px;
         font-size: 40px;
         font-weight: 600;
         margin: 0;
@@ -81,6 +85,7 @@
       }
 
       .step-content-ocr {
+        width: 40%;
         .step-number-ocr {
           font-size: 24px;
           font-weight: 600;
@@ -92,9 +97,10 @@
         .step-description-ocr {
           p {
             margin: 0;
-            line-height: 40px;
+            line-height: 200%;
             font-weight: 300;
             font-family: $font-pretendard;
+            word-break: keep-all;
 
             &.ko-ocr {
               color: rgba(255, 255, 255, 1);
@@ -110,46 +116,6 @@
           }
         }
       }
-    }
-
-    .step-ocr:nth-child(2) {
-      padding: 120px 156px 140px 20px;
-    }
-
-    .step-ocr:nth-child(3) {
-      padding: 120px 153px 140px 20px;
-    }
-
-    .step-ocr:nth-child(4) {
-      padding: 120px 160px 140px 20px;
-    }
-
-    .step-ocr:nth-child(5) {
-      padding: 120px 110px 140px 20px;
-    }
-
-    .step-ocr:nth-child(6) {
-      padding: 120px 160px 140px 20px;
-    }
-
-    .step-ocr:nth-child(7) {
-      padding: 120px 205px 140px 20px;
-    }
-
-    .step-ocr:nth-child(8) {
-      padding: 120px 160px 140px 20px;
-    }
-
-    .step-ocr:nth-child(9) {
-      padding: 120px 110px 140px 20px;
-    }
-
-    .step-ocr:nth-child(10) {
-      padding: 120px 160px 140px 20px;
-    }
-
-    .step-ocr:nth-child(11) {
-      padding: 120px 120px 140px 20px;
     }
   }
 }
@@ -187,7 +153,6 @@
     }
     .process-section-ocr {
       .process-header-ocr {
-        margin: 180px 200px 80px 120px;
         h3 {
           font-size: 100px;
           line-height: 95px;
@@ -204,9 +169,7 @@
       }
     }
     .process-steps-ocr {
-      margin: 0 120px;
       .step-ocr {
-        padding: 100px 180px 120px 15px;
         h4 {
           font-size: 36px;
           line-height: 48px;
@@ -228,26 +191,6 @@
           }
         }
       }
-      .step-ocr:nth-child(2) {
-        padding: 100px 130px 120px 15px;
-      }
-      .step-ocr:nth-child(3) {
-        padding: 100px 127px 120px 15px;
-      }
-      .step-ocr:nth-child(4) {
-        padding: 100px 135px 120px 15px;
-      }
-      .step-ocr:nth-child(5) {
-        padding: 100px 90px 120px 15px;
-      }
-      .step-ocr:nth-child(6),
-      .step-ocr:nth-child(7),
-      .step-ocr:nth-child(8),
-      .step-ocr:nth-child(9),
-      .step-ocr:nth-child(10),
-      .step-ocr:nth-child(11) {
-        padding: 100px 135px 120px 15px;
-      }
     }
   }
 }
@@ -263,36 +206,47 @@
     }
     .process-section-ocr {
       .process-header-ocr {
-        margin: 120px 150px 60px 100px;
         flex-direction: column;
         align-items: center;
         text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
         h3 {
+          width: auto;
+          margin-bottom: 2rem;
+          padding-left: 0;
           font-size: 80px;
           line-height: 75px;
         }
         .process-intro-ocr {
-          p.en-ocr {
-            font-size: 22px;
-            margin-bottom: 40px;
-          }
-          p.ko-ocr {
-            font-size: 16px;
+          width: auto;
+          p {
+            &.en-ocr {
+              font-size: 22px;
+              margin-bottom: 40px;
+            }
+            &.ko-ocr {
+              font-size: 16px;
+            }
           }
         }
       }
     }
     .process-steps-ocr {
-      margin: 0 80px;
+      margin-left: 10px;
+      margin-right: 10px;
       .step-ocr {
         flex-direction: column;
         align-items: center;
-        padding: 80px 100px 100px 10px;
         h4 {
+          width: auto;
+          padding-left: 0;
+          margin-bottom: 2rem;
           font-size: 32px;
           line-height: 40px;
         }
         .step-content-ocr {
+          width: auto;
           .step-number-ocr {
             font-size: 20px;
             line-height: 26px;
@@ -308,18 +262,6 @@
             }
           }
         }
-      }
-      .step-ocr:nth-child(2),
-      .step-ocr:nth-child(3),
-      .step-ocr:nth-child(4),
-      .step-ocr:nth-child(5),
-      .step-ocr:nth-child(6),
-      .step-ocr:nth-child(7),
-      .step-ocr:nth-child(8),
-      .step-ocr:nth-child(9),
-      .step-ocr:nth-child(10),
-      .step-ocr:nth-child(11) {
-        padding: 80px 100px 100px 10px;
       }
     }
   }
@@ -338,15 +280,13 @@
     }
     .process-section-ocr {
       .process-header-ocr {
-        margin: 80px 1.5rem 40px 1.5rem;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
         h3 {
+          width: auto;
           font-size: 2.5rem;
           line-height: 2.5rem;
         }
         .process-intro-ocr {
+          width: auto;
           p.en-ocr {
             font-size: 1.25rem;
             margin-bottom: 2rem;
@@ -354,15 +294,16 @@
           p.ko-ocr {
             font-size: 1rem;
           }
+          .br-pc {
+            display: none;
+          }
         }
       }
     }
     .process-steps-ocr {
-      margin: 0 1.5rem;
       .step-ocr {
         flex-direction: column;
         align-items: center;
-        padding: 60px 1.5rem;
         h4 {
           font-size: 1.5rem;
           line-height: 2rem;
@@ -380,6 +321,9 @@
             p.en-ocr {
               font-size: 1rem;
               margin-top: 1rem;
+            }
+            .br-pc {
+              display: none;
             }
           }
         }

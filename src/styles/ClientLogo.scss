@@ -7,12 +7,10 @@
   .logo-container {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 3.375rem;
     max-width: 1200px;
     width: 100%;
-    margin: 0 auto;
-    margin-top: 400px;
-    margin-bottom: 310px;
+    margin: 20.8333vw auto 16.1458vw;
   }
 
   .logo-row {
@@ -24,10 +22,11 @@
   }
 
   .logo-item {
-
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 160px;
+    aspect-ratio: 1.7 / 1;
 
     img {
       transition: opacity 0.8s ease, transform 0.3s ease;
@@ -61,22 +60,17 @@
     .logo-container {
       gap: 2.5rem;
     }
-    .logo-row {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
   }
 }
 
 @media (max-width: 1024px) {
   .client-logos {
-    padding: 2.5rem 1rem;
+    padding: 2.5rem 1.5rem;
     .logo-container {
       gap: 2rem;
     }
-    .logo-row {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+    .logo-item {
+      width: auto;
     }
   }
 }
@@ -88,8 +82,10 @@
       gap: 1.5rem;
     }
     .logo-row {
-      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
+    }
+    .logo-item {
+      width: auto;
     }
   }
 }

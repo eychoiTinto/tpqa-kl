@@ -48,8 +48,8 @@ const rowVariants = {
   visible: (index) => ({
     opacity: 1,
     transition: {
-      delay: index * 1,
-      duration: 0.8,
+      delay: index * 0.8,
+      duration: 0.4,
       ease: "easeInOut",
     },
   }),
@@ -77,9 +77,6 @@ export default function ClientLogos() {
                     src={logos[logoIndex].src}
                     alt={logos[logoIndex].alt}
                     style={{
-                      objectPosition: position,
-                      objectFit: "none",
-                      width: "160px",
                       opacity: 1 - rowIndex * 0.2,
                     }}
                     onError={(e) => {
