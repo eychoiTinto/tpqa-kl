@@ -5,12 +5,20 @@
   color: #ffffff;
   font-family: $font-base;
 
+  .content-pf-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - $header-height);
+  }
+
   .content-pf {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    height: calc(100vh - $header-height);
-    padding: 60px 70px 60px 60px;
+    align-items: flex-end;
+    width: 100%;
+    padding-right: 70px;
+    padding-left: 60px;
   }
 
   .main-text-pf {
