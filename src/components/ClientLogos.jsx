@@ -31,7 +31,7 @@ const logoNames = [
 
 const logos = logoNames.map((name, index) => ({
   id: index + 1,
-  src: `/src/assets/logos/${name}`,
+  src: `/assets/logos/${name}`,
   alt: name.replace(/[-_]/g, " ").replace(".png", "") + " Logo",
 }));
 

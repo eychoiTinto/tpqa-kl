@@ -17,33 +17,19 @@ const HoverButton = () => {
         {/* Icon */}
         <span className="at_icon">
           {/* Initial Icon */}
-          <svg
-            width="30"
-            height="30"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M22.8281 16.875H0V13.125H22.8281L12.3281 2.625L15 0L30 15L15 30L12.3281 27.375L22.8281 16.875Z"
-              fill="#0F0F0F"
-            />
+          <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" fill="none">
+            <mask id="mask_initial" maskUnits="userSpaceOnUse" x="26" y="26" width="40" height="40">
+              <rect x="26" y="26" width="40" height="40" fill="#D9D9D9"/>
+            </mask>
+            <g mask="url(#mask_initial)">
+              <path d="M51.0453 45.6875H30.5V42.3125H51.0453L41.5953 32.8625L44 30.5L57.5 44L44 57.5L41.5953 55.1375L51.0453 45.6875Z" fill="#0F0F0F"/>
+            </g>
           </svg>
 
           {/* Hover Icon */}
-          {/* <svg
-            className="hover"
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <mask id="mask0_1186_4682" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
-            <rect width="40" height="40" fill="#0F0F0F"/>
-            </mask>
-            <g mask="url(#mask0_1186_4682)">
-            <path d="M14.0002 15.4667L2.26683 8.13339V22.8001H15.4668V25.7334H-0.666504V2.26672H28.6668V15.4667H25.7335V8.13339L14.0002 15.4667ZM14.0002 12.5334L25.7335 5.20006H2.26683L14.0002 12.5334ZM24.2668 30.1334L22.2135 28.0801L24.5235 25.7334H18.4002V22.8001H24.5235L22.1768 20.4534L24.2668 18.4001L30.1335 24.2667L24.2668 30.1334ZM2.26683 8.13339V24.2667V15.4667V15.5767V5.20006V8.13339Z" fill="#0F0F0F"/>
-            </g>
-          </svg> */}
+          <svg className="hover" xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" fill="none">
+            <path d="M44.0002 45.4667L32.2668 38.1334V52.8001H45.4668V55.7334H29.3335V32.2667H58.6668V45.4667H55.7335V38.1334L44.0002 45.4667ZM44.0002 42.5334L55.7335 35.2001H32.2668L44.0002 42.5334ZM54.2668 60.1334L52.2135 58.0801L54.5235 55.7334H48.4002V52.8001H54.5235L52.1768 50.4534L54.2668 48.4001L60.1335 54.2667L54.2668 60.1334ZM32.2668 38.1334V54.2667V45.4667V45.5767V35.2001V38.1334Z" fill="#0F0F0F"/>
+          </svg>
         </span>
       </div>
     </a>

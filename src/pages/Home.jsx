@@ -41,7 +41,7 @@ function Home() {
 
         const creativeRect = CreativeRef.current.getBoundingClientRect();
         const startThreshold = window.innerHeight / 2; // 배경색 변경 시작 시점
-        const endThreshold = 0; // 배경색 변경 완료 시점
+        const endThreshold = window.innerHeight / 3; // 배경색 변경 완료 시점
 
         if (creativeRect.top <= startThreshold) {
           // progress: 0 (변화 시작) ~ 1 (완전히 어두워짐)
@@ -88,7 +88,7 @@ function Home() {
   return (
     <>
       <Header bgColor={bgColor} revertBgColor={revertBgColor} />
-      <Hero style={{ opacity: heroOpacity }} />
+      <Hero style={{ opacity: heroOpacity, zIndex: heroOpacity === 0 ? '-10' : '0' }} />
       <HeroSecond ref={HeroSecondRef} />
       <Creative ref={CreativeRef} data-section="Creative" />
       <OurCreativeWork />
