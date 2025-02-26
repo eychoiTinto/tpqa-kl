@@ -5,10 +5,14 @@ import Logo from "../assets/logos/Logo";
 function Header({ bgColor, revertBgColor }) {
   const borderColorWithOpacity = revertBgColor.replace("rgb", "rgba").replace(")", ", 0.3)");
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header className="navbar" style={{ backgroundColor: bgColor, borderColor: borderColorWithOpacity }}>
       <nav className="nav-container">
-        <Link to="/" className="brand">
+        <Link to="/" className="brand" onClick={handleLogoClick}>
             <Logo fill={revertBgColor}/>
         </Link>
 
