@@ -70,18 +70,18 @@ function FadeInSection({ children, className }) {
 function OurCreativeWork() {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
-    if (isInView) {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true); // 한 번만 실행하도록 상태 변경
       controls.start({
         x: ["100%", "-100%"],
         transition: { duration: 8.5, repeat: Infinity, ease: "linear" },
       });
-    } else {
-      controls.stop();
     }
-  }, [isInView, controls]);
+  }, [isInView, hasAnimated, controls]);
 
   return (
     <section className="creative-work-ocr">
