@@ -44,13 +44,12 @@ const logoPositions = [
 ];
 
 const rowVariants = {
-  hidden: { opacity: 0, y: 60 },
+  hidden: { opacity: 0},
   visible: (index) => ({
     opacity: 1,
-    y: 0,
     transition: {
       delay: index * 0.1,
-      duration: 0.6,
+      duration: 1.2,
       ease: "easeInOut",
     },
   }),
@@ -67,7 +66,7 @@ export default function ClientLogos() {
             custom={rowIndex}
             initial="hidden"
             whileInView="visible"
-            viewport={{ amount: 0.2 }}
+            viewport={{ amount: 1, onLeave: "hidden" }}
             variants={rowVariants}
           >
             {row.map((position, colIndex) => {

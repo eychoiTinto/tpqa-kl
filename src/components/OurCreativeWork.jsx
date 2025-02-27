@@ -76,7 +76,7 @@ function OurCreativeWork() {
     if (isInView) {
       controls.start({
         x: ["100%", "-100%"],
-        transition: { duration: 7.5, repeat: Infinity, ease: "linear" },
+        transition: { duration: 8.5, repeat: Infinity, ease: "linear" },
       });
     } else {
       controls.stop();
