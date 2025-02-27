@@ -5,33 +5,41 @@ import img from "../assets/c-img.png";
 import img2 from "../assets/c-img2.png";
 
 const Creative = forwardRef((props, ref) => {
-  const [translateY, setTranslateY] = useState(0);
+  const [translateY, setTranslateY] = useState(50);
   const [start, setStart] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
       if (!ref.current) return;
-
+    
       const rect = ref.current.getBoundingClientRect();
-      // 현재 스크롤 위치
       const currentScroll = window.scrollY;
-
+    
       if (start === null && rect.top === 0) {
-        // #creative-section이 처음으로 화면에 보이고 + 화면높이 절반 스크롤 됐을때 start 값 설정
         setStart(currentScroll + window.innerHeight * 0.5);
       }
-
+    
       if (start !== null) {
-        // 변화가 끝날 지점 = #creative-section이 처음으로 화면에 보이고 나서부터 화면높이 2배 스크롤 된 지점
-        const end = start + window.innerHeight * 1.5;
-
-        if (currentScroll >= start && currentScroll <= end) {
-          const progress = (currentScroll - start) / (end - start); // 0 → 1
-          setTranslateY(Math.round(progress * -50)); // 0 → -50%
-        } else if (currentScroll <= start) {
-          setTranslateY(0)
+        const mid1 = start + window.innerHeight * 0.5; // 50 → 0 구간 끝
+        const mid2 = mid1 + window.innerHeight * 0.5; // 0 유지 구간 끝
+        const mid3 = mid2 + window.innerHeight * 0.5; // 0 → -50 구간 끝
+        const end = mid3 + window.innerHeight * 0.5; // -50 유지 후 -100
+    
+        if (currentScroll < start) {
+          setTranslateY(50);
+        } else if (currentScroll >= start && currentScroll < mid1) {
+          const progress = (currentScroll - start) / (mid1 - start);
+          setTranslateY(50 - progress * 50); // 50 → 0
+        } else if (currentScroll >= mid1 && currentScroll < mid2) {
+          setTranslateY(0); // 0 유지
+        } else if (currentScroll >= mid2 && currentScroll < mid3) {
+          const progress = (currentScroll - mid2) / (mid3 - mid2);
+          setTranslateY(0 - progress * 50); // 0 → -50
+        } else if (currentScroll >= mid3 && currentScroll < end) {
+          setTranslateY(-50); // -50 유지
         } else if (currentScroll >= end) {
-          setTranslateY(-50)
+          const progress = (currentScroll - end) / (end - mid3);
+          setTranslateY(-50 - progress * 50); // -50 → -100
         }
       }
     };
