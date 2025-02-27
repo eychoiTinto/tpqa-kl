@@ -13,10 +13,16 @@ const HeroSecond = forwardRef((props, ref) => {
     [0.797619, 1]
   );
 
+  const imgScale = useTransform(
+    scrollY,
+    [-70, 600],
+    [1, 1.5]
+  );
+
   return (
     <section className="hero-second" ref={ref}>
       <motion.div className="hero-image-second" style={{ scale }}>
-        <motion.img src={img} alt="Hero" />
+        <motion.img src={img} alt="Hero" style={{ scale: imgScale }} />
       </motion.div>
       <div className="hero-content-second">
         <p>
