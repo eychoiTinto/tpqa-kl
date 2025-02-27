@@ -13,18 +13,25 @@ const Creative = forwardRef((props, ref) => {
       if (!ref.current) return;
 
       const rect = ref.current.getBoundingClientRect();
-      const currentScroll = window.scrollY; // 현재 스크롤 위치
+      // 현재 스크롤 위치
+      const currentScroll = window.scrollY;
 
       if (start === null && rect.top === 0) {
-        setStart(currentScroll); // #creative-section이 처음으로 화면에 보일 때 start 값 설정
+        // #creative-section이 처음으로 화면에 보이고 + 화면높이 절반 스크롤 됐을때 start 값 설정
+        setStart(currentScroll + window.innerHeight * 0.5);
       }
 
       if (start !== null) {
-        const end = start + window.innerHeight * 1.5; // 변화가 끝날 지점
+        // 변화가 끝날 지점 = #creative-section이 처음으로 화면에 보이고 나서부터 화면높이 2배 스크롤 된 지점
+        const end = start + window.innerHeight * 1.5;
 
         if (currentScroll >= start && currentScroll <= end) {
           const progress = (currentScroll - start) / (end - start); // 0 → 1
-          setTranslateY(progress * -50); // 0 → -50%
+          setTranslateY(Math.round(progress * -50)); // 0 → -50%
+        } else if (currentScroll <= start) {
+          setTranslateY(0)
+        } else if (currentScroll >= end) {
+          setTranslateY(-50)
         }
       }
     };
