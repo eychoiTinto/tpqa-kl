@@ -2,11 +2,11 @@ import "../styles/hero.scss";
 import "../styles/SecondHero.scss";
 import HoverButton from "./HoverButton";
 
-export default function Hero({style}) {
+export default function Hero({ className }) {
 
   return (
     <>
-      <section className="hero" style={style}>
+      <section className={`hero ${className}`}>
         <div className="hero-text-area">
           <h1 className="hero-text">CONTENTS</h1>
           <HoverButton />

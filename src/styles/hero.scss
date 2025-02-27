@@ -8,6 +8,12 @@
   width: 100%;
   min-height: calc((100vh - $header-height) - 70px);
   padding-bottom: 32px;
+  transition: 0.3s;
+
+  &.fadeout {
+    opacity: 0;
+    z-index: -10;
+  }
 }
 
 .hero-text-area {
