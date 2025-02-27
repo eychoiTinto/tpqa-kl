@@ -44,12 +44,13 @@ const logoPositions = [
 ];
 
 const rowVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, y: 60 },
   visible: (index) => ({
     opacity: 1,
+    y: 0,
     transition: {
-      delay: index * 0.8,
-      duration: 0.4,
+      delay: index * 0.1,
+      duration: 0.6,
       ease: "easeInOut",
     },
   }),

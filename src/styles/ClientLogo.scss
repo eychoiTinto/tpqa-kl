@@ -31,11 +31,6 @@
     img {
       transition: opacity 0.8s ease, transform 0.3s ease;
     }
-
-    &:hover img {
-      filter: brightness(1);
-      opacity: 1 !important;
-    }
   }
 }
 .fade-section {
