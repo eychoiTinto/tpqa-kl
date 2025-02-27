@@ -70,13 +70,13 @@ function FadeInSection({ children, className }) {
 function OurCreativeWork() {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-50px" });
+  const isInView = useInView(ref, { once: false });
 
   useEffect(() => {
     if (isInView) {
       controls.start({
         x: ["100%", "-100%"],
-        transition: { duration: 7, repeat: Infinity, ease: "linear" },
+        transition: { duration: 7.5, repeat: Infinity, ease: "linear" },
       });
     } else {
       controls.stop();
@@ -86,7 +86,7 @@ function OurCreativeWork() {
   return (
     <section className="creative-work-ocr">
       <div className="content-ocr-wrapper" ref={ref}>
-        <motion.div className="content-ocr" animate={controls}>
+        <motion.div className="content-ocr" style={{transform: 'translateX(100%)'}} animate={controls}>
           <h2>OUR CREATIVE WORKFLOW</h2>
         </motion.div>
       </div>
