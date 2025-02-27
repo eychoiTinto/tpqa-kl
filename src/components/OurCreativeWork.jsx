@@ -74,14 +74,15 @@ function OurCreativeWork() {
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
-    if (isInView && !hasAnimated) {
-      setHasAnimated(true); // 한 번만 실행하도록 상태 변경
+    if (isInView) {
       controls.start({
         x: ["100%", "-100%"],
-        transition: { duration: 8.5, repeat: Infinity, ease: "linear" },
+        transition: { duration: 7.5, repeat: Infinity, ease: "linear" },
       });
+    } else {
+      controls.stop();
     }
-  }, [isInView, hasAnimated, controls]);
+  }, [isInView, controls]);
 
   return (
     <section className="creative-work-ocr">
