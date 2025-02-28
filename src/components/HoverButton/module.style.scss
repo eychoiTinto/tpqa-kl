@@ -1,7 +1,6 @@
 @import "../../styles/variables";
 
-
-.at_contact-button {
+.contact-btn {
   position: relative;
   display: flex;
   align-items: center;
@@ -13,99 +12,68 @@
   border-radius: 3.125vw;
   overflow: hidden;
   cursor: pointer;
-  
-  .at_button-content {
+  padding: 0.625vw;
+
+  .btn-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
     width: 100%;
-    height: 100%;
-    padding: 0.625vw;
     transition: 0.5s;
 
-    .at_button-text {
-      flex: 1;
-      padding-right: 4.5833vw;
+    .text {
+      padding-left: 1.822vw;
       font-size: 2.0833vw;
       font-weight: 600;
       font-family: $font-poppins;
-      text-align: center;
+      line-height: 100%;
+      letter-spacing: -0.8px;
+    }
+    .at-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      width: 4.5833vw;
+      height: 4.5833vw;
+      border-radius: 3.125vw;
+      background-color: #fff;
+      background-image: url('../../../public/assets/icon-arrow.svg');
+      background-size: cover;
+      background-repeat: no-repeat;
       transition: 0.5s;
     }
 
     &.hover {
-
-      .at_button-text {
-        padding-left: 4.5833vw;
-        padding-right: 0;
-        background: linear-gradient(270deg, #f2b813 10%, #ffdc00 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
-        opacity: 0;
+      justify-content: flex-start;
+      transform: translateX(-4.5833vw);
+      background: var(--Y-G_01, linear-gradient(270deg, #F2B813 10%, #FFDC00 100%));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      .at-icon {
+        background-image: linear-gradient(270deg, #F2B813 10%, #FFDC00 100%), url('../../../public/assets/icon-mail.svg');
+        background-blend-mode: multiply; 
       }
-    }
-
-  }
-
-  .at_icon {
-    position: absolute;
-    top: 50%;
-    right: 0.625vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    width: 4.5833vw;
-    height: 4.5833vw;
-    border-radius: 3.125vw;
-    background: #ffffff;
-    transform: translate(0, -50%);
-    transition: 0.5s;
-
-    svg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.5s;
-
-      &.hover {
-        opacity: 0;
+      .text {
+        padding-left: 1.25vw;
       }
     }
   }
 
   &:hover {
-    box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.10);
-
-    .at_button-content {
-      .at_button-text {
-        opacity: 0;
+    .btn-content {
+      opacity: 0;
+      .at-icon {
+        transform: translateX(-11.7708vw);
       }
-
       &.hover {
         transform: translateX(-100%);
-  
-        .at_button-text {
-          opacity: 1;
-        }
-      }
-    }
-
-    .at_icon {
-      transform: translate(calc(-16.3541vw + 100%), -50%);
-      background-image: linear-gradient(270deg, #F2B813 10%, #FFDC00 100%);
-
-      svg {
-        opacity: 0;
-
-        &.hover {
-          opacity: 1;
+        opacity: 1;
+        .at-icon {
+          transform: translateX(0px);
         }
       }
     }
