@@ -1,102 +1,102 @@
 [
   {
     "name": "hyndai",
-    "image": "hyndai.png"
+    "image": "/assets/logos/hyndai.png"
   },
   {
     "name": "bank-korea",
-    "image": "bank-korea.png"
+    "image": "/assets/logos/bank-korea.png"
   },
   {
     "name": "samsung",
-    "image": "samsung.png"
+    "image": "/assets/logos/samsung.png"
   },
   {
     "name": "nongshim-logo",
-    "image": "nongshim-logo.png"
+    "image": "/assets/logos/nongshim-logo.png"
   },
   {
     "name": "lgkorea",
-    "image": "lgkorea.png"
+    "image": "/assets/logos/lgkorea.png"
   },
   {
     "name": "sh-logo",
-    "image": "sh-logo.png"
+    "image": "/assets/logos/sh-logo.png"
   },
   {
     "name": "hd-logo",
-    "image": "hd-logo.png"
+    "image": "/assets/logos/hd-logo.png"
   },
   {
     "name": "lg-cns",
-    "image": "lg-cns.png"
+    "image": "/assets/logos/lg-cns.png"
   },
   {
     "name": "stemco",
-    "image": "stemco.png"
+    "image": "/assets/logos/stemco.png"
   },
   {
     "name": "hana-logo",
-    "image": "hana-logo.png"
+    "image": "/assets/logos/hana-logo.png"
   },
   {
     "name": "sba-logo",
-    "image": "sba-logo.png"
+    "image": "/assets/logos/sba-logo.png"
   },
   {
     "name": "eu-logo",
-    "image": "eu-logo.png"
+    "image": "/assets/logos/eu-logo.png"
   },
   {
     "name": "kim-chang-logo",
-    "image": "kim-chang-logo.png"
+    "image": "/assets/logos/kim-chang-logo.png"
   },
   {
     "name": "kpmg",
-    "image": "kpmg.png"
+    "image": "/assets/logos/kpmg.png"
   },
   {
     "name": "doosan-logo",
-    "image": "doosan-logo.png"
+    "image": "/assets/logos/doosan-logo.png"
   },
   {
     "name": "korea-center-logo",
-    "image": "korea-center-logo.png"
+    "image": "/assets/logos/korea-center-logo.png"
   },
   {
     "name": "craft-art-logo",
-    "image": "craft-art-logo.png"
+    "image": "/assets/logos/craft-art-logo.png"
   },
   {
     "name": "lg-logo",
-    "image": "lg-logo.png"
+    "image": "/assets/logos/lg-logo.png"
   },
   {
     "name": "yes-logo",
-    "image": "yes-logo.png"
+    "image": "/assets/logos/yes-logo.png"
   },
   {
     "name": "habitat-logo",
-    "image": "habitat-logo.png"
+    "image": "/assets/logos/habitat-logo.png"
   },
   {
     "name": "blue-tree-logo",
-    "image": "blue-tree-logo.png"
+    "image": "/assets/logos/blue-tree-logo.png"
   },
   {
     "name": "ktr-logo",
-    "image": "ktr-logo.png"
+    "image": "/assets/logos/ktr-logo.png"
   },
   {
     "name": "kdb-logo",
-    "image": "kdb-logo.png"
+    "image": "/assets/logos/kdb-logo.png"
   },
   {
     "name": "ajol-logo",
-    "image": "ajol-logo.png"
+    "image": "/assets/logos/ajol-logo.png"
   },
   {
     "name": "charm-fre-logo",
-    "image": "charm-fre-logo.png"
+    "image": "/assets/logos/charm-fre-logo.png"
   }
 ]

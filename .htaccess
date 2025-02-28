@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+# 요청한 파일이 존재하면 그대로 제공
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 존재하지 않는 파일(예: /portfolio) 요청 시 index.html로 리디렉트
+RewriteRule ^ index.html [L]

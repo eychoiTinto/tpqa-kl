@@ -51,9 +51,7 @@ function Home({scrollY}) {
     }
 
     // 최대 이동값 제한 (음수 값으로 설정)
-    console.log('mainElement.offsetHeight', mainElement.scrollHeight)
-    console.log('window.innerHeight * 11', window.innerHeight * 11 - scrollingHeight * 3 + 215)
-    const maxTransformY = -(window.innerHeight * 11 - scrollingHeight * 3 + 215);
+    const maxTransformY = -(scrollingHeight * 8 + 415);
 
     // 일반 스크롤 구간
     const scrollThreshold = scrollingHeight * 5;

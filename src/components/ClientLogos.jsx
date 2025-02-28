@@ -34,7 +34,7 @@ function ClientLogos() {
 
   const logos = logoItems.map((partner, index) => ({
     id: index + 1,
-    src: `/assets/logos/${partner.image}`,
+    src: `${partner.image}`,
     alt: partner.name,
   }));
 

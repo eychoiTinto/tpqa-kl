@@ -11,98 +11,47 @@
   border-bottom-width: 1px;
   border-bottom-style: solid;
   transition: $transition;
-}
 
-.navbar-black {
-  width: 100%;
-  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
-  background-color: #0f0f0f;
-}
+  &.navbar-black {
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+    background-color: #0f0f0f !important;
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 0 60px;
-}
+    .nav-link {
+      color: #f0f0f0 !important;
+    }
 
-.nav-links {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-}
+    svg {
+      fill: #f0f0f0 !important;
+    }
+  }
 
-.nav-link {
-  // color: rgba(15, 15, 15, 1);
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 18px;
-  line-height: 32px;
-  font-weight: 500;
-  opacity: 0.7;
-}
-
-.nav-link-black {
-  color: #ffffff;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 18px;
-  line-height: 32px;
-  font-weight: 500;
-  opacity: 0.7;
-}
-
-.nav-link:hover,
-.nav-link-black:hover {
-  opacity: 1;
-  transition: opacity 0.3s ease-out;
-}
-
-/* Responsive styles */
-@media (max-width: 1440px) {
   .nav-container {
-    max-width: 1440px;
-    padding: 25px 40px;
-  }
-  .nav-links {
-    gap: 40px;
-  }
-  .nav-link,
-  .nav-link-black {
-    font-size: 16px;
-    line-height: 28px;
-  }
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 60px;
 
-@media (max-width: 1024px) {
-  .nav-container {
-    max-width: 1024px;
-    padding: 20px 30px;
-  }
-  .nav-links {
-    gap: 30px;
-  }
-  .nav-link,
-  .nav-link-black {
-    font-size: 14px;
-    line-height: 24px;
-  }
-}
+    .nav-links {
+      display: flex;
+      gap: 60px;
+      align-items: center;
 
-@media (max-width: 768px) {
-  .nav-container {
-    padding: 15px 20px;
-  }
-  .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-  .nav-link,
-  .nav-link-black {
-    font-size: 12px;
-    line-height: 20px;
+      .nav-link {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 18px;
+        line-height: 32px;
+        font-weight: 500;
+        transition: opacity 0.3s ease-out;
+        opacity: 0.7;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
   }
 }

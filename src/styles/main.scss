@@ -6,33 +6,34 @@
 
 
 html, body {
-  min-width: 1440px;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
 }
 body {
-  color: $text-color;
+  min-width: 1440px;
   margin: 0;
   background-color: $background-color;
+  color: $text-color;
   font-family: $font-base;
   transition: $transition;
 
-  #root {
+  &.home {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-
-    .page {
-      flex: 1;
-      overflow: auto;
-
-      main {
-        position: sticky;
-        top: 0;
-        height: 100%;
-        transition: $transition;
-        // overflow: auto;
+    overflow: hidden;
+    
+    #root {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+  
+      .page {
+        flex: 1;
+        overflow: auto;
+  
+        main {
+          position: sticky;
+          top: 0;
+          height: 100%;
+          transition: $transition;
+        }
       }
     }
   }
