@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import "../styles/ClientLogo.scss";
 import { motion } from "framer-motion";
 
@@ -43,17 +44,68 @@ const logoPositions = [
   ["0% 80%", "20% 80%", "40% 80%", "60% 80%", "80% 80%"],
 ];
 
-const rowVariants = {
-  hidden: { opacity: 0},
-  visible: (index) => ({
-    opacity: 1,
-    transition: {
-      delay: index * 0.1,
-      duration: 1.2,
-      ease: "easeInOut",
-    },
-  }),
-};
+function useScrollFade(ref) {
+  const [isVisible, setIsVisible] = useState(false);
+  const prevScrollY = useRef(0);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > prevScrollY.current;
+
+      const rect = ref.current.getBoundingClientRect();
+      const elementTop = rect.top;
+      const elementBottom = rect.bottom;
+      const windowHeight = window.innerHeight;
+
+      const visibleHeight =
+        Math.min(elementBottom, windowHeight) - Math.max(elementTop, 0);
+      const elementVisibleRatio = visibleHeight / rect.height;
+
+      if (scrollingDown) {
+        if (elementVisibleRatio > 0.8) {
+          setIsVisible(true);
+        }
+      } else {
+        if (elementTop > windowHeight * 0.5) {
+          setIsVisible(false);
+        }
+      }
+
+      prevScrollY.current = currentScrollY;
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  return isVisible;
+}
+
+function FadeInSection({ children, className }) {
+  const ref = useRef(null);
+  const isVisible = useScrollFade(ref);
+
+  return (
+    <div
+      ref={ref}
+      className={`fade-section ${className} ${
+        isVisible ? "fade-in" : "fade-out"
+      }`}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function ClientLogos() {
   return (
@@ -64,15 +116,11 @@ export default function ClientLogos() {
             key={rowIndex}
             className="logo-row"
             custom={rowIndex}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 1, onLeave: "hidden" }}
-            variants={rowVariants}
           >
             {row.map((position, colIndex) => {
               const logoIndex = rowIndex * row.length + colIndex;
               return (
-                <motion.div key={`${rowIndex}-${colIndex}`} className="logo-item">
+                <FadeInSection key={`${rowIndex}-${colIndex}`} className="logo-item">
                   <img
                     src={logos[logoIndex].src}
                     alt={logos[logoIndex].alt}
@@ -84,7 +132,7 @@ export default function ClientLogos() {
                       e.target.src = `../assets/logos/placeholder.svg`;
                     }}
                   />
-                </motion.div>
+                </FadeInSection>
               );
             })}
           </motion.div>
