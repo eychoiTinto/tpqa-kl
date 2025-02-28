@@ -1,13 +1,15 @@
 @use "variables" as *;
 
 .creative-work-ocr {
+  padding-top: $header-height;
   color: #ffffff;
   font-family: $font-base;
 
   .content-ocr-wrapper {
-    overflow: hidden;
-    width: 100%;
     position: relative;
+    width: 100%;
+    padding-top: 4.5833vw;
+    overflow: hidden;
   }
 
   .content-ocr {
@@ -23,8 +25,8 @@
   }
 
   .process-section-ocr {
+      padding: 12.5vw 7.2916vw 0px;
     .process-header-ocr {
-      margin: 12.5vw 7.2916vw 0px;
       display: flex;
       justify-content: start;
       align-items: start;

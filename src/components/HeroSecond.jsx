@@ -1,26 +1,12 @@
 "use client";
-import React, { forwardRef, useEffect, useState } from "react";
+import { forwardRef } from "react";
 import img from "../assets/img-1.png";
 import "../styles/SecondHero.scss";
 
 const HeroSecond = forwardRef((props, ref) => {
-  const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= window.innerHeight * 0.3) {
-        setIsActive(true);
-      } else {
-        setIsActive(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
-    <section className={`hero-second ${isActive ? "active" : ""}`} ref={ref}>
+    <section className={`hero-second ${props.className}`} ref={ref}>
       <div className="hero-image-second">
         <img src={img} alt="Hero" />
       </div>
@@ -34,5 +20,7 @@ const HeroSecond = forwardRef((props, ref) => {
     </section>
   );
 });
+
+HeroSecond.displayName = "HeroSecond";
 
 export default HeroSecond;

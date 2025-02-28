@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../styles/Header.scss";
 import Logo from "../assets/logos/Logo";
 
-function Header({ bgColor, revertBgColor }) {
+function Header({ bgColor='rga(250,250,250)', revertBgColor='rgb(15,15,15)' }) {
   const borderColorWithOpacity = revertBgColor.replace("rgb", "rgba").replace(")", ", 0.3)");
 
   const handleLogoClick = () => {
@@ -18,12 +18,12 @@ function Header({ bgColor, revertBgColor }) {
 
         <div className="nav-links" style={{ color: revertBgColor }}>
           <Link to="/portfolio" className="nav-link">
-            <span initial="initial" animate="animate">
+            <span>
               Portfolio
             </span>
           </Link>
 
-          <a initial="initial" animate="animate" href="mailto:hello@keynergylab.com" className="nav-link">
+          <a href="mailto:hello@keynergylab.com" className="nav-link">
             Contact
           </a>
         </div>

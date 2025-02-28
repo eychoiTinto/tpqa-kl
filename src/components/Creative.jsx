@@ -1,54 +1,17 @@
 
-import { forwardRef, useRef, useState, useEffect  } from "react";
+import { forwardRef } from "react";
 import "../styles/Creative.scss";
 import img from "../assets/c-img.png";
 import img2 from "../assets/c-img2.png";
 
 const Creative = forwardRef((props, ref) => {
-  const [start, setStart] = useState(null);
-  const [activeClass, setActiveClass] = useState("");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!ref.current) return;
-
-      const rect = ref.current.getBoundingClientRect();
-      const currentScroll = window.scrollY;
-
-      // start를 한 번만 설정 (rect.top >= -window.innerHeight * 0.5 조건 충족 시)
-      if (start === null && rect.top === 0) {
-        setStart(currentScroll);
-      }
-
-      if (start !== null) {
-        const mid1 = start + window.innerHeight * 0.5;
-        const end = mid1 + window.innerHeight * 0.5;
-
-        if (currentScroll >= end) {
-          setActiveClass("fadeout");
-        } else if (currentScroll >= mid1) {
-          setActiveClass("active2");
-        } else if (currentScroll >= start) {
-          setActiveClass("active1");
-        } else {
-          setActiveClass("");
-        }
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [ref, start]);
 
 
   return (
     <section
       ref={ref}
       id="creative-section"
-      className={`creative-cr ${activeClass}`}>
+      className={`creative-cr ${props.className}`}>
       <div className="creative-scroll-container">
         <div className={`creative-inner`}>
           <div className="creative-content-cr">
