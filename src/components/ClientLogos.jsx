@@ -1,46 +1,13 @@
+import { useState, useEffect } from "react";
 import "../styles/ClientLogo.scss";
 import { motion } from "framer-motion";
 
-const logoNames = [
-  "hyndai.png",
-  "bank-korea.png",
-  "samsung.png",
-  "nongshim-logo.png",
-  "lgkorea.png",
-  "sh-logo.png",
-  "hd-logo.png",
-  "lg-cns.png",
-  "stemco.png",
-  "hana-logo.png",
-  "sba-logo.png",
-  "eu-logo.png",
-  "kim-chang-logo.png", 
-  "kpmg.png",
-  "doosan-logo.png", 
-  "korea-center-logo.png", 
-  "craft-art-logo.png",
-  "lg-logo.png",
-  "yes-logo.png",
-  "habitat-logo.png", 
-  "blue-tree-logo.png",
-  "ktr-logo.png",  
-  "kdb-logo.png",
-  "ajol-logo.png", 
-  "charm-fre-logo.png", 
-];
-
-const logos = logoNames.map((name, index) => ({
-  id: index + 1,
-  src: `/assets/logos/${name}`,
-  alt: name.replace(/[-_]/g, " ").replace(".png", "") + " Logo",
-}));
-
 const logoPositions = [
-  ["0% 0%", "20% 0%", "40% 0%", "60% 0%", "80% 0%"],
-  ["0% 20%", "20% 20%", "40% 20%", "60% 20%", "80% 20%"],
-  ["0% 40%", "20% 40%", "40% 40%", "60% 40%", "80% 40%"],
-  ["0% 60%", "20% 60%", "40% 60%", "60% 60%", "80% 60%"],
-  ["0% 80%", "20% 80%", "40% 80%", "60% 80%", "80% 80%"],
+  ["", "", "", "", ""],
+  ["", "", "", "", ""],
+  ["", "", "", "", ""],
+  ["", "", "", "", ""],
+  ["", "", "", "", ""],
 ];
 
 const rowVariants = {
@@ -55,11 +22,31 @@ const rowVariants = {
   }),
 };
 
-export default function ClientLogos() {
+function ClientLogos() {
+  const [logoItems, setLogoItems] = useState([]);
+  
+  useEffect(() => {
+    fetch("/data/partnersLogo.json")
+      .then((response) => response.json())
+      .then((data) => setLogoItems(data))
+      .catch((error) => console.error("데이터를 불러오는 중 오류 발생:", error));
+  }, []);
+
+  const logos = logoItems.map((partner, index) => ({
+    id: index + 1,
+    src: `/assets/logos/${partner.image}`,
+    alt: partner.name,
+  }));
+
   return (
     <section className="client-logos">
       <div className="logo-container">
-        {logoPositions.map((row, rowIndex) => (
+        {logos.map((logo) => (
+          <div key={logo.id} className="logo-item">
+            <img src={logo.src} alt={logo.alt} />
+          </div>
+        ))}
+        {/* {logoPositions.map((row, rowIndex) => (
           <motion.div
             key={rowIndex}
             className="logo-row"
@@ -88,8 +75,10 @@ export default function ClientLogos() {
               );
             })}
           </motion.div>
-        ))}
+        ))} */}
       </div>
     </section>
   );
 }
+
+export default ClientLogos

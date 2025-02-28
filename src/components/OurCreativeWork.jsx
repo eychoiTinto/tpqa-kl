@@ -4,73 +4,11 @@ import { motion, useAnimation } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "motion/react";
 
-function useScrollFade(ref) {
-  const [isVisible, setIsVisible] = useState(false);
-  const prevScrollY = useRef(0);
-
-  useEffect(() => {
-    if (!ref.current) return;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const scrollingDown = currentScrollY > prevScrollY.current;
-
-      const rect = ref.current.getBoundingClientRect();
-      const elementTop = rect.top;
-      const elementBottom = rect.bottom;
-      const windowHeight = window.innerHeight;
-
-      const visibleHeight =
-        Math.min(elementBottom, windowHeight) - Math.max(elementTop, 0);
-      const elementVisibleRatio = visibleHeight / rect.height;
-
-      if (scrollingDown) {
-        if (elementVisibleRatio > 0.5) {
-          setIsVisible(true);
-        }
-      } else {
-        if (elementTop > windowHeight * 0.5) {
-          setIsVisible(false);
-        }
-      }
-
-      prevScrollY.current = currentScrollY;
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
-
-  return isVisible;
-}
-
-function FadeInSection({ children, className }) {
-  const ref = useRef(null);
-  const isVisible = useScrollFade(ref);
-
-  return (
-    <div
-      ref={ref}
-      className={`fade-section ${className} ${
-        isVisible ? "fade-in" : "fade-out"
-      }`}
-    >
-      {children}
-    </div>
-  );
-}
-
-function OurCreativeWork() {
+function OurCreativeWork({scrollY, standard}) {
+  console.log('scrollY', scrollY);
+  console.log('standard', standard);
   const controls = useAnimation();
   const ref = useRef(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
@@ -109,7 +47,7 @@ function OurCreativeWork() {
         </div>
 
         <div className="process-steps-ocr">
-          <FadeInSection className="step-ocr">
+          <div className="step-ocr">
             <h4>Contents Request</h4>
             <div className="step-content-ocr">
               <p className="step-number-ocr">01. 콘텐츠 의뢰</p>
@@ -126,10 +64,10 @@ function OurCreativeWork() {
                 </p>
               </div>
             </div>
-          </FadeInSection>
+          </div>
 
           <div className="border-top"></div>
-          <FadeInSection className="step-ocr">
+          <div className="step-ocr">
             <h4>Consulting & Proposal</h4>
             <div className="step-content-ocr">
               <p className="step-number-ocr">02. 전략 컨설팅 및 제안</p>
@@ -145,10 +83,10 @@ function OurCreativeWork() {
                 </p>
               </div>
             </div>
-          </FadeInSection>
+          </div>
 
           <div className="border-top"></div>
-          <FadeInSection className="step-ocr">
+          <div className="step-ocr">
             <h4>Content Planning</h4>
             <div className="step-content-ocr">
               <p className="step-number-ocr">03. 영상 콘텐츠 기획</p>
@@ -164,10 +102,10 @@ function OurCreativeWork() {
                 </p>
               </div>
             </div>
-          </FadeInSection>
+          </div>
 
           <div className="border-top"></div>
-          <FadeInSection className="step-ocr">
+          <div className="step-ocr">
             <h4>
               Storyboard & <br /> Conti Production
             </h4>
@@ -185,10 +123,10 @@ function OurCreativeWork() {
                 </p>
               </div>
             </div>
-          </FadeInSection>
+          </div>
 
           <div className="border-top"></div>
-          <FadeInSection className="step-ocr">
+          <div className="step-ocr">
             <h4>
               Visual Story <br /> Architecture
             </h4>
@@ -207,10 +145,10 @@ function OurCreativeWork() {
                 </p>
               </div>
             </div>
-          </FadeInSection>
+          </div>
 
           <div className="border-top"></div>
-          <FadeInSection className="step-ocr">
+          <div className="step-ocr">
             <h4>Filming</h4>
             <div className="step-content-ocr">
               <p className="step-number-ocr">06. 촬영</p>
@@ -226,7 +164,7 @@ function OurCreativeWork() {
                 </p>
               </div>
             </div>
-          </FadeInSection>
+          </div>
 
           <div className="border-b"></div>
         </div>
