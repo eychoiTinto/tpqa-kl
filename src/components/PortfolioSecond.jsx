@@ -47,7 +47,7 @@ function PortfolioSecond() {
         {portfolioItems.slice(0, visibleItems).map((item) => (
           <div key={item.id} className="portfolio-item-pff">
             <div className="portfolio-image-wrapper-pff">
-              <img src={`/assets/portfolio/${item.image}`} alt={item.title} />
+              <img src={`${item.image}`} alt={item.title} />
               <div className="overlay-pff">
                 <p>{item.period}</p>
                 <h3>{item.title}</h3>
@@ -59,7 +59,7 @@ function PortfolioSecond() {
       {hasMoreItems && (
         <div className="more-button-container-pff">
           <button
-            className={`more-button-pff ${isLoading ? "loading" : ""}`}
+            className={`more-button-pff active ${isLoading ? "loading" : ""}`}
             data-text="MORE"
             onClick={handleLoadMore}
             disabled={isLoading}

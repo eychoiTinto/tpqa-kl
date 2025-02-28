@@ -15,8 +15,6 @@ function Portfolio() {
 
   return (
     <>
-      <HeaderTwo />
-
       <section className="turning-ideas-pf">
         <div className="content-pf-wrap">
           <div className="content-pf">

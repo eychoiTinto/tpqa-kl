@@ -1,73 +1,73 @@
 [
   {
     "id": 1,
-    "image": "p1.png",
+    "image": "/assets/portfolio/p1.png",
     "title": "2024 GDC 인터뷰 촬영 티저 영상",
     "period": "2024. 03"
   },
   {
     "id": 2,
-    "image": "p2.png",
+    "image": "/assets/portfolio/p2.png",
     "title": "2023 GDC 홍보 인포그래픽 영상 ",
     "period": "2023. 11"
   },
   {
     "id": 3,
-    "image": "p3.png",
+    "image": "/assets/portfolio/p3.png",
     "title": "인포그래픽_성과공유영상",
     "period": "2024. 03"
   },
   {
     "id": 4,
-    "image": "p4.png",
+    "image": "/assets/portfolio/p4.png",
     "title": "고객만족_현장스케치영상",
     "period": "2024. 03"
   },
   {
     "id": 5,
-    "image": "p5.png",
+    "image": "/assets/portfolio/p5.png",
     "title": "6월 찾아가는진료_final",
     "period": "2023. 05 - 2023. 12"
   },
   {
     "id": 6,
-    "image": "p6.png",
+    "image": "/assets/portfolio/p6.png",
     "title": "9월 주거환경개선사업_fina",
     "period": "2023. 05 - 2023. 12"
   },
   {
     "id": 7,
-    "image": "p7.png",
+    "image": "/assets/portfolio/p7.png",
     "title": "9월 Before&After_final",
     "period": "2023. 05 - 2023. 12"
   },
   {
     "id": 8,
-    "image": "p8.png",
+    "image": "/assets/portfolio/p8.png",
     "title": "CS워크숍영상",
     "period": "2023. 05 - 2023. 12"
   },
   {
     "id": 9,
-    "image": "p9.png",
+    "image": "/assets/portfolio/p9.png",
     "title": "현장스케치_SH 예빛섬 영화제",
     "period": "2023. 05 - 2023. 12"
   },
   {
     "id": 10,
-    "image": "p10.png",
+    "image": "/assets/portfolio/p10.png",
     "title": "현장스케치영상제작",
     "period": "2023. 05 - 2023. 12"
   },
   {
     "id": 11,
-    "image": "p11.png",
+    "image": "/assets/portfolio/p11.png",
     "title": "서울도시주택공사",
     "period": "2023. 05 - 2023. 12"
   },
   {
     "id": 12,
-    "image": "p12.png",
+    "image": "/assets/portfolio/p12.png",
     "title": "서울도시주택공사",
     "period": "2023. 05 - 2023. 12"
   }

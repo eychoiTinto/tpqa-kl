@@ -4,19 +4,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
   padding: 0 6.25vw;
+  overflow: hidden;
 
   .hero-image-second {
+    flex: 1;
     position: relative;
     overflow: hidden;
     transform: scale(0.797619);
     transform-origin: top center;
-    transition: 0.3s;
+    transition: $transition;
 
     img {
       transform: scale(1);
       transform-origin: center;
-      transition: 0.3s;
+      transition: $transition;
     }
   }
   
@@ -34,6 +37,9 @@
   }
 
   &.active {
+    margin-top: 70px;
+    padding-top: calc($header-height + 50px);
+  
     .hero-image-second {
       transform: scale(1);
 

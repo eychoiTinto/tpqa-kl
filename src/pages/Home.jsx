@@ -1,89 +1,83 @@
 import { useEffect, useRef, useState } from "react";
 import ClientLogos from "../components/ClientLogos";
 import Creative from "../components/Creative";
-import Header from "../components/Header";
 import Hero from "../components/Hero";
 import HeroSecond from "../components/HeroSecond";
 import OurCreativeWork from "../components/OurCreativeWork";
 
-function Home() {
+function Home({scrollY}) {
+  const [scrollingHeight, setScrollingHeight] = useState(window.innerHeight);
+  const [mainPosY, setMainPosY] = useState(0);
+  const [translateY, setTranslateY] = useState(0);
+
   const HeroSecondRef = useRef(null);
   const CreativeRef = useRef(null);
-  const [bgColor, setBgColor] = useState("rgb(240, 240, 240)");
-  const [revertBgColor, setRevertBgColor] = useState("rgb(15, 15, 15)");
-  const [isHeroFaded, setIsHeroFaded] = useState(false);
-
-  // 선형 보간 함수 (lerp)
-  const lerp = (start, end, t) => start + (end - start) * t;
+  const [creativeClass, setCreativeClass] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => {
-      // 메인텍스트 페이드아웃
-      if (!HeroSecondRef.current) return;
-
-      const heroSecondTop = HeroSecondRef.current.getBoundingClientRect().top;
-      const fadeThreshold = window.innerHeight * 0.7;
-
-      if (heroSecondTop <= fadeThreshold) {
-        setIsHeroFaded(true);
-      } else {
-        setIsHeroFaded(false);
-      }
-
-      requestAnimationFrame(() => {
-        // 배경색 변경
-        if (!CreativeRef.current) return;
-
-        const creativeRect = CreativeRef.current.getBoundingClientRect();
-        const startThreshold = window.innerHeight * 0.8;
-        const endThreshold = window.innerHeight * 0.3;
-
-        if (creativeRect.top <= startThreshold) {
-          const progress = Math.min(
-            Math.max((startThreshold - creativeRect.top) / (startThreshold - endThreshold), 0),
-            1
-          );
-
-          const r = Math.round(lerp(240, 15, progress));
-          const g = Math.round(lerp(240, 15, progress));
-          const b = Math.round(lerp(240, 15, progress));
-          const revertR = Math.round(lerp(15, 240, progress));
-          const revertG = Math.round(lerp(15, 240, progress));
-          const revertB = Math.round(lerp(15, 240, progress));
-
-          const newBgColor = `rgb(${r}, ${g}, ${b})`;
-          const newRevertBgColor = `rgb(${revertR}, ${revertG}, ${revertB})`;
-
-          setBgColor(newBgColor);
-          setRevertBgColor(newRevertBgColor);
-
-          document.body.style.backgroundColor = newBgColor;
-        } else {
-          setBgColor("rgb(240, 240, 240)");
-          setRevertBgColor("rgb(15, 15, 15)");
-
-          document.body.style.backgroundColor = "rgb(240, 240, 240)";
-        }
-      });
+    const updateScrollingHeight = () => {
+      setScrollingHeight(window.innerHeight);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // 초기 실행 (페이지 로드시 확인)
+    window.addEventListener("resize", updateScrollingHeight);
+    updateScrollingHeight();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.body.style.backgroundColor = ""; // 언마운트 시 초기화
+      window.removeEventListener("resize", updateScrollingHeight);
+      document.body.style.backgroundColor = "";
     };
   }, []);
 
+  useEffect(() => {
+    const mainElement = document.querySelector("main");
+    if (!mainElement) return;
+
+    let newTransformY = 0;
+    let newCreativeClass = "";
+    let newMainPosY = 0;
+    let transitionEnabled = true;
+
+    if (scrollY > 0) {
+      newTransformY = -scrollingHeight;
+      newMainPosY = scrollingHeight;
+
+      if (scrollY >= scrollingHeight * 2) {
+        newTransformY = -scrollingHeight * 2;
+        newCreativeClass = "active1";
+      }
+      if (scrollY >= scrollingHeight * 3.5) {
+        newCreativeClass = "active2";
+      }
+    }
+
+    // 최대 이동값 제한 (음수 값으로 설정)
+    const maxTransformY = -(scrollingHeight * 8 + 415);
+
+    // 일반 스크롤 구간
+    const scrollThreshold = scrollingHeight * 5;
+    if (scrollY >= scrollThreshold) {
+      newTransformY = -scrollingHeight * 2 - (scrollY - scrollThreshold);
+      transitionEnabled = false;
+    }
+
+    // 최소값 적용 (newTransformY가 maxTransformY보다 작아지지 않도록 제한)
+    newTransformY = Math.max(newTransformY, maxTransformY);
+
+    mainElement.style.transition = transitionEnabled ? "0.8s" : "none";
+    mainElement.style.transform = `translateY(${newTransformY}px)`;
+
+    setMainPosY(newMainPosY);
+    setCreativeClass(newCreativeClass);
+    setTranslateY(newTransformY);
+  }, [scrollY, scrollingHeight]);
+
   return (
     <>
-      <Header bgColor={bgColor} revertBgColor={revertBgColor} />
-      <Hero className={isHeroFaded ? "fadeout" : ""} />
-      <HeroSecond ref={HeroSecondRef} />
-      <Creative ref={CreativeRef} data-section="Creative" />
-      <OurCreativeWork />
-      <ClientLogos />
+      <Hero style={{ transform: `translateY(${mainPosY}px)`, opacity: `${mainPosY !== 0 ? '0' : '1'}`}} />
+      <HeroSecond ref={HeroSecondRef} className={mainPosY !== 0 ? "active" : ""} />
+      <Creative ref={CreativeRef} className={`creative-container ${creativeClass}`} />
+      <OurCreativeWork scrollY={translateY} standard={scrollingHeight * 3} />
+      <ClientLogos scrollY={translateY} standard={scrollingHeight * 3}/>
     </>
   );
 }
