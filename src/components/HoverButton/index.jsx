@@ -3,17 +3,15 @@ import "./module.style.scss";
 
 const HoverButton = () => {
   return (
-    <a href="mailto:hello@keynergylab.com">
-      <div className="contact-btn">
-        <div className="btn-content">
-          <div className="text">contact</div>
-          <div className="at-icon"></div>
-        </div>
-        <div className="btn-content hover">
-          <div className="at-icon"></div>
-          <div className="text">keynergy</div>
-        </div>
-      </div>
+    <a href="mailto:hello@keynergylab.com" className="contact-btn">
+      <span className="btn-content">
+        <span className="text">contact</span>
+        <span className="at-icon"></span>
+      </span>
+      <span className="btn-content hover">
+        <span className="at-icon"></span>
+        <span className="text">keynergy</span>
+      </span>
     </a>
   )
 }
