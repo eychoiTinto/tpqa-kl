@@ -42,32 +42,34 @@ function PortfolioSecond() {
 
   return (
     <section className="portfolio-section-pff">
-      <div data-aos="fade-up" className="portfolio-grid-pff">
-        <div className="background-text-pff">portfolio</div>
-        {portfolioItems.slice(0, visibleItems).map((item) => (
-          <div key={item.id} className="portfolio-item-pff">
-            <div className="portfolio-image-wrapper-pff">
-              <img src={`${item.image}`} alt={item.title} />
-              <div className="overlay-pff">
-                <p>{item.period}</p>
-                <h3>{item.title}</h3>
+      <div data-aos="fade-up">
+        <div className="portfolio-grid-pff">
+          <div className="background-text-pff">portfolio</div>
+          {portfolioItems.slice(0, visibleItems).map((item) => (
+            <div key={item.id} className="portfolio-item-pff">
+              <div className="portfolio-image-wrapper-pff">
+                <img src={`${item.image}`} alt={item.title} />
+                <div className="overlay-pff">
+                  <p>{item.period}</p>
+                  <h3>{item.title}</h3>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-      {hasMoreItems && (
-        <div className="more-button-container-pff">
-          <button
-            className={`more-button-pff active ${isLoading ? "loading" : ""}`}
-            data-text="MORE"
-            onClick={handleLoadMore}
-            disabled={isLoading}
-          >
-            <span> {isLoading ? "LOADING..." : "MORE"}</span>
-          </button>
+          ))}
         </div>
-      )}
+        {hasMoreItems && (
+          <div className="more-button-container-pff">
+            <button
+              className={`more-button-pff active ${isLoading ? "loading" : ""}`}
+              data-text="MORE"
+              onClick={handleLoadMore}
+              disabled={isLoading}
+            >
+              <span> {isLoading ? "LOADING..." : "MORE"}</span>
+            </button>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
