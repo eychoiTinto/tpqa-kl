@@ -51,8 +51,7 @@ function Home({scrollY}) {
     }
 
     // 최대 이동값 제한 (음수 값으로 설정)
-    const maxTransformY = -(scrollingHeight * 8 + 415);
-
+    const maxTransformY = -(mainElement.scrollHeight - scrollingHeight*13);
     // 일반 스크롤 구간
     const scrollThreshold = scrollingHeight * 5;
     if (scrollY >= scrollThreshold) {
@@ -61,7 +60,7 @@ function Home({scrollY}) {
     }
 
     // 최소값 적용 (newTransformY가 maxTransformY보다 작아지지 않도록 제한)
-    newTransformY = Math.max(newTransformY, maxTransformY);
+    if(newTransformY < maxTransformY) newTransformY = maxTransformY;
 
     mainElement.style.transition = transitionEnabled ? "0.8s" : "none";
     mainElement.style.transform = `translateY(${newTransformY}px)`;

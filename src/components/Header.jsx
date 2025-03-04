@@ -3,12 +3,16 @@ import { useEffect, useState } from "react"
 import "../styles/Header.scss";
 import Logo from "../assets/logos/Logo";
 
-function Header({ bgColor='rgb(250,250,250)', revertBgColor='rgb(15,15,15)', isHome }) {
+function Header({ bgColor='rgb(250,250,250)', revertBgColor='rgb(15,15,15)', isHome, pageRef }) {
   const location = useLocation();
   const borderColorWithOpacity = revertBgColor.replace("rgb", "rgba").replace(")", ", 0.3)");
 
   const handleLogoClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (pageRef?.current) {
+      pageRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   useEffect(() => {

@@ -81,7 +81,7 @@ function App() {
       <Wrapper>
         <NavbarProvider>
           {/* ✅ Header에 isHome prop 전달 */}
-          <Header bgColor={bgColor} revertBgColor={revertBgColor} isHome={isHome} />
+          <Header bgColor={bgColor} revertBgColor={revertBgColor} isHome={isHome} pageRef={pageRef}/>
           <main>
             <Routes>
               <Route path="/" element={<Home scrollY={scrollY} />} />
