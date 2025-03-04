@@ -3,7 +3,7 @@ import youtube from "../assets/youtube.png";
 import blog from "../assets/blog.png";
 
 function Footer() {
-  const email = "hello@mysite.com";
+  const email = "hello@keynergylab.com";
 
   const handleContactClick = (event) => {
     event.preventDefault();

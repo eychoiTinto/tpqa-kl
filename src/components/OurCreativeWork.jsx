@@ -71,13 +71,13 @@ function OurCreativeWork({scrollY, standard}) {
         <div className="process-steps-ocr">
           {processData.map((step, index) => (
             <div
-              key={step.id}
+              key={`step_${index}`}
               ref={(el) => (stepsRef.current[index] = el)}
               className={`step-ocr ${activeSteps[index] ? "active" : ""}`}
             >
-              <h4>{step.title}</h4>
+              <h4 dangerouslySetInnerHTML={{ __html: step.title }} />
               <div className="step-content-ocr">
-                <p className="step-number-ocr">{step.number}</p>
+                <p className="step-number-ocr" dangerouslySetInnerHTML={{ __html: step.number }} />
                 <div className="step-description-ocr">
                   <p className="ko-ocr" dangerouslySetInnerHTML={{ __html: step.ko }} />
                   <p className="en-ocr" dangerouslySetInnerHTML={{ __html: step.en }} />

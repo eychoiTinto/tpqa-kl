@@ -1,7 +1,7 @@
 import "./module.style.scss";
 
 const HoverButton = () => {
-  const email = "hello@mysite.com";
+  const email = "hello@keynergylab.com";
 
   const handleContactClick = (event) => {
     event.preventDefault();

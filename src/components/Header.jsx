@@ -6,7 +6,7 @@ import Logo from "../assets/logos/Logo";
 function Header({ bgColor='rgb(250,250,250)', revertBgColor='rgb(15,15,15)', isHome, pageRef }) {
   const location = useLocation();
   const borderColorWithOpacity = revertBgColor.replace("rgb", "rgba").replace(")", ", 0.3)");
-  const email = "hello@mysite.com";
+  const email = "hello@keynergylab.com";
 
   const handleLogoClick = () => {
     if (pageRef?.current) {
