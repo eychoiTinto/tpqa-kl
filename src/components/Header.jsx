@@ -6,6 +6,7 @@ import Logo from "../assets/logos/Logo";
 function Header({ bgColor='rgb(250,250,250)', revertBgColor='rgb(15,15,15)', isHome, pageRef }) {
   const location = useLocation();
   const borderColorWithOpacity = revertBgColor.replace("rgb", "rgba").replace(")", ", 0.3)");
+  const email = "hello@mysite.com";
 
   const handleLogoClick = () => {
     if (pageRef?.current) {
@@ -13,6 +14,22 @@ function Header({ bgColor='rgb(250,250,250)', revertBgColor='rgb(15,15,15)', isH
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+  };
+
+  const handleContactClick = (event) => {
+    event.preventDefault();
+    window.location.href = `mailto:${email}`;
+
+    setTimeout(() => {
+      if (document.hasFocus()) {
+        const confirmOpen = confirm(
+          "메일 앱이 실행되지 않았어요. 웹메일(Gmail)로 열까요?"
+        );
+        if (confirmOpen) {
+          window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`);
+        }
+      }
+    }, 500);
   };
 
   useEffect(() => {
@@ -51,7 +68,7 @@ function Header({ bgColor='rgb(250,250,250)', revertBgColor='rgb(15,15,15)', isH
             </span>
           </Link>
 
-          <a href="mailto:hello@keynergylab.com" className="nav-link">
+          <a href={`mailto:${email}`} className="nav-link" onClick={handleContactClick}>
             Contact
           </a>
         </div>

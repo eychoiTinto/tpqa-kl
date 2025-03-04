@@ -31,11 +31,15 @@
         line-height: 20px;
       }
 
-      p {
+      p, a {
         font-family: $font-pretendard;
         font-size: 18px;
         margin: 0;
         font-weight: 600;
+      }
+
+      a:hover {
+        text-decoration: underline;
       }
     }
   }

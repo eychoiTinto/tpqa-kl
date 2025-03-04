@@ -3,6 +3,23 @@ import youtube from "../assets/youtube.png";
 import blog from "../assets/blog.png";
 
 function Footer() {
+  const email = "hello@mysite.com";
+
+  const handleContactClick = (event) => {
+    event.preventDefault();
+    window.location.href = `mailto:${email}`;
+
+    setTimeout(() => {
+      if (document.hasFocus()) {
+        const confirmOpen = confirm(
+          "메일 앱이 실행되지 않았어요. 웹메일(Gmail)로 열까요?"
+        );
+        if (confirmOpen) {
+          window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`);
+        }
+      }
+    }, 500);
+  };
   return (
     <footer className="footer-fr">
       <div className="footer-content-fr">
@@ -13,7 +30,7 @@ function Footer() {
           </div>
           <div className="info-group-fr">
             <h3>E-mail</h3>
-            <p>hello@keynergylab.com</p>
+            <a href={`mailto:${email}`} onClick={handleContactClick}>hello@keynergylab.com</a>
           </div>
           <div className="info-group-fr">
             <h3>Office</h3>
