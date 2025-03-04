@@ -3,14 +3,16 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { useLayoutEffect, useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useEffect, useRef, useState, useCallback } from "react";
 import { NavbarProvider } from "./contexts/NevbarContext";
 
-const Wrapper = ({ children }) => {
+const Wrapper = ({ children, pageRef }) => {
   const location = useLocation();
-  
+
   useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    if (pageRef.current) {
+      pageRef.current.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
   }, [location.pathname]);
 
   return children;
@@ -24,22 +26,25 @@ function App() {
   const [revertBgColor, setRevertBgColor] = useState("rgb(15, 15, 15)");
   const isHome = location.pathname === "/"; // 현재 경로가 "/"인지 확인
 
-  // 스크롤값 업데이트
-  useEffect(() => {
-    const handleScroll = () => {
-      if (pageRef.current) {
-        setScrollY(pageRef.current.scrollTop);
-      }
-    };
+  // ✅ useCallback을 사용하여 이벤트 핸들러 메모이제이션
+  const handleScroll = useCallback(() => {
+    if (pageRef.current) {
+      setScrollY(pageRef.current.scrollTop);
+    }
+  }, []);
 
-    pageRef.current?.addEventListener("scroll", handleScroll);
+  // ✅ 스크롤 이벤트 리스너 등록 및 제거
+  useEffect(() => {
+    if (!pageRef.current) return;
+    
+    pageRef.current.addEventListener("scroll", handleScroll);
     return () => {
       pageRef.current?.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
+  // ✅ 배경색 변경 로직 (홈에서만 적용)
   useEffect(() => {
-    // 배경색 변경 로직 (홈에서만 적용)
     if (isHome) {
       const startThreshold = window.innerHeight * 2;
       if (scrollY >= startThreshold) {
@@ -52,9 +57,9 @@ function App() {
     }
   }, [scrollY, isHome]);
 
+  // ✅ body 배경색 변경
   useEffect(() => {
     document.body.style.backgroundColor = bgColor;
-
     return () => {
       document.body.style.backgroundColor = "";
     };
@@ -65,26 +70,25 @@ function App() {
     const mainElement = document.querySelector("main");
     const headerElement = document.querySelector("header");
 
-    if (mainElement) mainElement.style.transform = "none"; // transform 초기화
+    if (mainElement) mainElement.style.transform = "none";
 
     if (headerElement) {
       if (!isHome) {
-        headerElement.classList.add("navbar-black"); // navbar-black 추가
+        headerElement.classList.add("navbar-black");
       } else {
-        headerElement.classList.remove("navbar-black"); // navbar-black 제거
+        headerElement.classList.remove("navbar-black");
       }
     }
   }, [location.pathname]);
 
   return (
     <div className="page" ref={pageRef}>
-      <Wrapper>
+      <Wrapper pageRef={pageRef}>
         <NavbarProvider>
-          {/* ✅ Header에 isHome prop 전달 */}
-          <Header bgColor={bgColor} revertBgColor={revertBgColor} isHome={isHome} />
+          <Header bgColor={bgColor} revertBgColor={revertBgColor} isHome={isHome} pageRef={pageRef} />
           <main>
             <Routes>
-              <Route path="/" element={<Home scrollY={scrollY} />} />
+              <Route path="/" element={<Home scrollY={scrollY} pageRef={pageRef} />} />
               <Route path="/portfolio" element={<Portfolio />} />
             </Routes>
             <Footer />

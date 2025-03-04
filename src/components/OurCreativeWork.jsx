@@ -5,8 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "motion/react";
 
 function OurCreativeWork({scrollY, standard}) {
-  console.log('scrollY', scrollY);
-  console.log('standard', standard);
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });

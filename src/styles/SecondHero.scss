@@ -9,7 +9,6 @@
   overflow: hidden;
 
   .hero-image-second {
-    flex: 1;
     position: relative;
     overflow: hidden;
     transform: scale(0.797619);
@@ -19,7 +18,8 @@
     img {
       transform: scale(1);
       transform-origin: center;
-      transition: $transition;
+      transition-duration: $transition;
+      transition-delay: 0.5s;
     }
   }
   
@@ -37,6 +37,7 @@
   }
 
   &.active {
+    justify-content: center;
     margin-top: 70px;
     padding-top: calc($header-height + 50px);
   
@@ -49,33 +50,3 @@
     }
   }
 }
-
-// Medium screens (1440px and below)
-// @media (max-width: 1440px) {
-//   .hero-second {
-//     // min-height: 90vh;
-//   }
-//   .hero-content-second {
-//     max-width: 800px;
-//     margin-top: 40px;
-//     p {
-//       line-height: 28px;
-//       font-size: 16px;
-//     }
-//   }
-// }
-
-// @media (max-width: 1024px) {
-//   .hero-second {
-//     // min-height: 80vh;
-//   }
-
-//   .hero-content-second {
-//     max-width: 600px;
-//     margin-top: 30px;
-//     p {
-//       line-height: 24px;
-//       font-size: 14px;
-//     }
-//   }
-// }
