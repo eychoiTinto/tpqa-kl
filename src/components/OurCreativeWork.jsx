@@ -3,15 +3,25 @@ import "aos/dist/aos.css";
 import { motion, useAnimation } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "motion/react";
-import processData from "../data/process";
 
 function OurCreativeWork({scrollY, standard}) {
+  const [processData, setProcessData] = useState([]);
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   const stepsRef = useRef([]);
   const [activeSteps, setActiveSteps] = useState([]);
+
+  useEffect(() => {
+    fetch("/data/process.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setProcessData(data);
+        setActiveSteps(new Array(data.length).fill(false));
+      })
+      .catch((error) => console.error("데이터를 불러오는 중 오류 발생:", error));
+  }, []);
 
   useEffect(() => {
     if (isInView) {
@@ -25,24 +35,47 @@ function OurCreativeWork({scrollY, standard}) {
   }, [isInView, controls]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        setActiveSteps((prev) =>
-          entries.reduce((acc, entry) => {
-            const index = stepsRef.current.indexOf(entry.target);
-            if (index !== -1) {
-              acc[index] = entry.intersectionRatio > 0.5;
-            }
-            return acc;
-          }, [...prev])
-        );
-      },
-      { threshold: [0.5] } // 50% 이상 보이면 감지
-    );
+    const observer = new IntersectionObserver((entries) => {
+      const centerY = window.innerHeight / 2;
 
-    stepsRef.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+      const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+
+      if (visibleEntries.length === 0) return;
+
+      let closestIndex = -1;
+      let closestDistance = Infinity;
+
+      visibleEntries.forEach((entry) => {
+        const index = stepsRef.current.indexOf(entry.target);
+        if (index !== -1) {
+          const rect = entry.boundingClientRect;
+          const elementCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(centerY - elementCenter);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = index;
+          }
+        }
+      });
+
+      const updated = new Array(processData.length).fill(false);
+      if (closestIndex !== -1) updated[closestIndex] = true;
+
+      setActiveSteps(updated);
+    }, {
+      threshold: 0.5, // 살짝이라도 보이면 감지
+    });
+
+    stepsRef.current.forEach((step) => {
+      if (step) observer.observe(step);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [processData]);
+
 
   return (
     <section className="creative-work-ocr">
@@ -75,12 +108,12 @@ function OurCreativeWork({scrollY, standard}) {
               ref={(el) => (stepsRef.current[index] = el)}
               className={`step-ocr ${activeSteps[index] ? "active" : ""}`}
             >
-              <h4 dangerouslySetInnerHTML={{ __html: step.title }} />
+              <h4>{step.title}</h4>
               <div className="step-content-ocr">
-                <p className="step-number-ocr" dangerouslySetInnerHTML={{ __html: step.number }} />
+                <p className="step-number-ocr">{step.number}</p>
                 <div className="step-description-ocr">
-                  <p className="ko-ocr" dangerouslySetInnerHTML={{ __html: step.ko }} />
-                  <p className="en-ocr" dangerouslySetInnerHTML={{ __html: step.en }} />
+                  <p className="ko-ocr">{step.ko}</p>
+                  <p className="en-ocr">{step.en}</p>
                 </div>
               </div>
             </div>
