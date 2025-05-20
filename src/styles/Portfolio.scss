@@ -88,3 +88,12 @@
     background-color: #ffe100;
   }
 }
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+  .turning-ideas-pf {
+    .content-pf-wrap {
+      aspect-ratio: 1920 / 990;
+      height: auto;
+    }
+  }
+}

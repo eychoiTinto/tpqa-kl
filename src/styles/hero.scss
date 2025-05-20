@@ -78,3 +78,10 @@
     line-height: 32px;
   }
 }
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+  .hero {
+    aspect-ratio: 1920 / 1080;
+    height: auto;
+  }
+}
