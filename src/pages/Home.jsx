@@ -71,23 +71,23 @@ function Home({ scrollY, pageRef }) {
     setTranslateY(newTransformY);
   }, [scrollY, scrollingHeight]);
 
-  const handleClick = () => {
-    if (!pageRef.current || clickCount >= 4) return; // 일반 스크롤 영역이면 클릭 막기
+  // const handleClick = () => {
+  //   if (!pageRef.current || clickCount >= 4) return; // 일반 스크롤 영역이면 클릭 막기
   
-    let newClickCount = clickCount + 1;
-    let newScrollY = 0;
+  //   let newClickCount = clickCount + 1;
+  //   let newScrollY = 0;
   
-    if (newClickCount === 1) newScrollY = scrollingHeight;
-    else if (newClickCount === 2) newScrollY = scrollingHeight * 2;
-    else if (newClickCount === 3) newScrollY = scrollingHeight * 3.5;
-    else if (newClickCount === 4) newScrollY = scrollingHeight * 5; // 일반 스크롤 진입
+  //   if (newClickCount === 1) newScrollY = scrollingHeight;
+  //   else if (newClickCount === 2) newScrollY = scrollingHeight * 2;
+  //   else if (newClickCount === 3) newScrollY = scrollingHeight * 3.5;
+  //   else if (newClickCount === 4) newScrollY = scrollingHeight * 5; // 일반 스크롤 진입
   
-    // 🔥 실제 스크롤 이동
-    pageRef.current.scrollTo({ top: newScrollY, behavior: "smooth" });
+  //   // 🔥 실제 스크롤 이동
+  //   pageRef.current.scrollTo({ top: newScrollY, behavior: "smooth" });
   
-    // ✅ clickCount 업데이트 (단, 일반 스크롤 이후로는 변경 X)
-    setClickCount(newClickCount);
-  };
+  //   // ✅ clickCount 업데이트 (단, 일반 스크롤 이후로는 변경 X)
+  //   setClickCount(newClickCount);
+  // };
   
   // ✅ 스크롤 이벤트에서 clickCount 업데이트
   useEffect(() => {
@@ -118,7 +118,7 @@ function Home({ scrollY, pageRef }) {
   
 
   return (
-    <div onClick={handleClick}>
+    <div>
       <Hero
         style={{
           transform: `translateY(${mainPosY}px)`,
