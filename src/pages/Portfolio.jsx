@@ -51,7 +51,6 @@ function Portfolio() {
                 <div
                   className="scroll-down-pf"
                   onClick={handleScrollClick}
-                  style={{ cursor: "pointer" }}
                 >
                   SCROLL DOWN{" "}
                   <svg

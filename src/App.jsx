@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CustomCursor from "./components/customCursor";
 import { useLayoutEffect, useEffect, useRef, useState, useCallback } from "react";
 import { NavbarProvider } from "./contexts/NevbarContext";
 
@@ -85,6 +86,7 @@ function App() {
     <div className="page" ref={pageRef}>
       <Wrapper pageRef={pageRef}>
         <NavbarProvider>
+          <CustomCursor />
           <Header bgColor={bgColor} revertBgColor={revertBgColor} isHome={isHome} pageRef={pageRef} />
           <main>
             <Routes>
