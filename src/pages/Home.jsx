@@ -97,9 +97,9 @@ function Home({ scrollY, pageRef }) {
       const scrollPos = pageRef.current.scrollTop;
       let newClickCount = clickCount;
   
-      if (scrollPos >= scrollingHeight * 5) {
+      if (scrollPos >= scrollingHeight * 4) {
         newClickCount = 4; // 일반 스크롤 구간
-      } else if (scrollPos >= scrollingHeight * 3.5) {
+      } else if (scrollPos >= scrollingHeight * 3) {
         newClickCount = 3;
       } else if (scrollPos >= scrollingHeight * 2) {
         newClickCount = 2;
