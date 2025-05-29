@@ -47,7 +47,7 @@ function App() {
   // ✅ 배경색 변경 로직 (홈에서만 적용)
   useEffect(() => {
     if (isHome) {
-      const startThreshold = window.innerHeight * 2;
+      const startThreshold = window.innerHeight * 1;
       if (scrollY >= startThreshold) {
         setBgColor("rgb(15, 15, 15)");
         setRevertBgColor("rgb(240, 240, 240)");

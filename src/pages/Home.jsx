@@ -6,7 +6,7 @@ import HeroSecond from "../components/HeroSecond";
 import OurCreativeWork from "../components/OurCreativeWork";
 
 function Home({ scrollY, pageRef }) {
-  const [scrollingHeight, setScrollingHeight] = useState(window.innerHeight);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const [mainPosY, setMainPosY] = useState(0);
   const [translateY, setTranslateY] = useState(0);
   const [clickCount, setClickCount] = useState(0);
@@ -16,15 +16,15 @@ function Home({ scrollY, pageRef }) {
   const [creativeClass, setCreativeClass] = useState("");
 
   useEffect(() => {
-    const updateScrollingHeight = () => {
-      setScrollingHeight(window.innerHeight);
+    const updatewindowHeight = () => {
+      setWindowHeight(window.innerHeight);
     };
 
-    window.addEventListener("resize", updateScrollingHeight);
-    updateScrollingHeight();
+    window.addEventListener("resize", updatewindowHeight);
+    updatewindowHeight();
 
     return () => {
-      window.removeEventListener("resize", updateScrollingHeight);
+      window.removeEventListener("resize", updatewindowHeight);
       document.body.style.backgroundColor = "";
     };
   }, []);
@@ -39,26 +39,28 @@ function Home({ scrollY, pageRef }) {
     let transitionEnabled = true;
 
     if (scrollY > 0) {
-      newTransformY = -scrollingHeight;
-      newMainPosY = scrollingHeight;
+      newTransformY = -windowHeight;
+      newMainPosY = windowHeight;
 
-      if (scrollY >= scrollingHeight * 2) {
-        newTransformY = -scrollingHeight * 2;
+      if (scrollY >= windowHeight * 1) {
+        newTransformY = -windowHeight * 2;
         newCreativeClass = "active1";
       }
-      if (scrollY >= scrollingHeight * 3.5) {
+      if (scrollY >= windowHeight * 2) {
         newCreativeClass = "active2";
       }
     }
 
     // 최대 이동값 제한 (음수 값으로 설정)
-    const maxTransformY = -(mainElement.scrollHeight - scrollingHeight * 14);
+    const maxTransformY = -(mainElement.scrollHeight - windowHeight * 13);
     // 일반 스크롤 구간
-    const scrollThreshold = scrollingHeight * 5;
+    const scrollThreshold = windowHeight * 3.5;
     if (scrollY >= scrollThreshold) {
-      newTransformY = -scrollingHeight * 2 - (scrollY - scrollThreshold);
+      newTransformY = -windowHeight * 2 - (scrollY - scrollThreshold);
       transitionEnabled = false;
     }
+
+    console.log(mainElement)
 
     // 최소값 적용 (newTransformY가 maxTransformY보다 작아지지 않도록 제한)
     if (newTransformY < maxTransformY) newTransformY = maxTransformY;
@@ -69,26 +71,8 @@ function Home({ scrollY, pageRef }) {
     setMainPosY(newMainPosY);
     setCreativeClass(newCreativeClass);
     setTranslateY(newTransformY);
-  }, [scrollY, scrollingHeight]);
+  }, [scrollY, windowHeight]);
 
-  // const handleClick = () => {
-  //   if (!pageRef.current || clickCount >= 4) return; // 일반 스크롤 영역이면 클릭 막기
-  
-  //   let newClickCount = clickCount + 1;
-  //   let newScrollY = 0;
-  
-  //   if (newClickCount === 1) newScrollY = scrollingHeight;
-  //   else if (newClickCount === 2) newScrollY = scrollingHeight * 2;
-  //   else if (newClickCount === 3) newScrollY = scrollingHeight * 3.5;
-  //   else if (newClickCount === 4) newScrollY = scrollingHeight * 5; // 일반 스크롤 진입
-  
-  //   // 🔥 실제 스크롤 이동
-  //   pageRef.current.scrollTo({ top: newScrollY, behavior: "smooth" });
-  
-  //   // ✅ clickCount 업데이트 (단, 일반 스크롤 이후로는 변경 X)
-  //   setClickCount(newClickCount);
-  // };
-  
   // ✅ 스크롤 이벤트에서 clickCount 업데이트
   useEffect(() => {
     const handleScroll = () => {
@@ -97,13 +81,13 @@ function Home({ scrollY, pageRef }) {
       const scrollPos = pageRef.current.scrollTop;
       let newClickCount = clickCount;
   
-      if (scrollPos >= scrollingHeight * 4) {
+      if (scrollPos >= windowHeight * 3) {
         newClickCount = 4; // 일반 스크롤 구간
-      } else if (scrollPos >= scrollingHeight * 3) {
+      } else if (scrollPos >= windowHeight * 2) {
         newClickCount = 3;
-      } else if (scrollPos >= scrollingHeight * 2) {
+      } else if (scrollPos >= windowHeight * 1) {
         newClickCount = 2;
-      } else if (scrollPos >= scrollingHeight) {
+      } else if (scrollPos >= windowHeight) {
         newClickCount = 1;
       } else {
         newClickCount = 0;
@@ -133,8 +117,8 @@ function Home({ scrollY, pageRef }) {
         ref={CreativeRef}
         className={`creative-container ${creativeClass}`}
       />
-      <OurCreativeWork scrollY={translateY} standard={scrollingHeight * 3} />
-      <ClientLogos scrollY={translateY} standard={scrollingHeight * 3} />
+      <OurCreativeWork scrollY={translateY} standard={windowHeight * 3} />
+      <ClientLogos scrollY={translateY} standard={windowHeight * 3} />
     </div>
   );
 }
