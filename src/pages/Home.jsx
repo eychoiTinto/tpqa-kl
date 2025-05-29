@@ -60,8 +60,6 @@ function Home({ scrollY, pageRef }) {
       transitionEnabled = false;
     }
 
-    console.log(mainElement)
-
     // 최소값 적용 (newTransformY가 maxTransformY보다 작아지지 않도록 제한)
     if (newTransformY < maxTransformY) newTransformY = maxTransformY;
 
