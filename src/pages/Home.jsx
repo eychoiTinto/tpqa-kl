@@ -52,7 +52,7 @@ function Home({ scrollY, pageRef }) {
     }
 
     // 최대 이동값 제한 (음수 값으로 설정)
-    const maxTransformY = -(mainElement.scrollHeight - scrollingHeight * 13);
+    const maxTransformY = -(mainElement.scrollHeight - scrollingHeight * 14);
     // 일반 스크롤 구간
     const scrollThreshold = scrollingHeight * 5;
     if (scrollY >= scrollThreshold) {
