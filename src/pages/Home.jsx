@@ -52,7 +52,7 @@ function Home({ scrollY, pageRef }) {
     }
 
     // 최대 이동값 제한 (음수 값으로 설정)
-    const maxTransformY = -(mainElement.scrollHeight - windowHeight * 13);
+    const maxTransformY = -(mainElement.scrollHeight - (windowHeight * 14) + 85);
     // 일반 스크롤 구간
     const scrollThreshold = windowHeight * 3.5;
     if (scrollY >= scrollThreshold) {
@@ -61,7 +61,9 @@ function Home({ scrollY, pageRef }) {
     }
 
     // 최소값 적용 (newTransformY가 maxTransformY보다 작아지지 않도록 제한)
-    if (newTransformY < maxTransformY) newTransformY = maxTransformY;
+    if (newTransformY < maxTransformY) {
+      newTransformY = maxTransformY;
+    }
 
     mainElement.style.transition = transitionEnabled ? "0.8s" : "none";
     mainElement.style.transform = `translateY(${newTransformY}px)`;
