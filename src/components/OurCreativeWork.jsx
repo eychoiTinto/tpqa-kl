@@ -103,167 +103,45 @@ function OurCreativeWork({scrollY, standard}) {
 
         <div className="process-summary-area">
           <ul className="process-list">
-            {/* 1 */}
-            <li className="process-item">
-              <div className="item-inner">
-                <div className="line-area">
-                  <span className="circle"></span>
-                  <span className="line"></span>
-                </div>
-                <div className="text-area">
-                  <div className="title-area">
-                    <h4 className="title">콘텐츠 제작 컨설팅</h4>
-                    <h5 className="subtitle">Consulting & Proposal</h5>
+            {processData.map((process, index) => (
+              <li key={`process_${index}`} className="process-item">
+                <div className="item-inner">
+                  <div className="line-area">
+                    <span className="circle"></span>
+                    <span className="line"></span>
                   </div>
-                  <div className="list">
-                    Content Strategy ㅣ Creative Consulting
-                  </div>
-                </div>
-              </div>
-            </li>
-            {/* 2 */}
-            <li className="process-item">
-              <div className="item-inner">
-                <div className="line-area">
-                  <span className="circle"></span>
-                  <span className="line"></span>
-                </div>
-                <div className="text-area">
-                  <div className="title-area">
-                    <h4 className="title">영상콘텐츠 기획</h4>
-                    <h5 className="subtitle">Content Planning</h5>
-                  </div>
-                  <div className="list">
-                    Video Planning ㅣ Concept & Ideation
+                  <div className="text-area">
+                    <div className="title-area">
+                      <h4 className="title" dangerouslySetInnerHTML={{ __html: process.koTitle }}></h4>
+                      <h5 className="subtitle" dangerouslySetInnerHTML={{ __html: process.enTitle }} ></h5>
+                    </div>
+                    <div className="list" dangerouslySetInnerHTML={{ __html: process.keywords }} />
                   </div>
                 </div>
-              </div>
-            </li>
-            {/* 3 */}
-            <li className="process-item">
-              <div className="item-inner">
-                <div className="line-area">
-                  <span className="circle"></span>
-                  <span className="line"></span>
-                </div>
-                <div className="text-area">
-                  <div className="title-area">
-                    <h4 className="title">스토리보드 & 콘티 구성</h4>
-                    <h5 className="subtitle">Storyboard & Conti Production</h5>
-                  </div>
-                  <div className="list">
-                    Storyboarding ㅣ Video Structure
-                  </div>
-                </div>
-              </div>
-            </li>
-            {/* 4 */}
-            <li className="process-item">
-              <div className="item-inner">
-                <div className="line-area">
-                  <span className="circle"></span>
-                  <span className="line"></span>
-                </div>
-                <div className="text-area">
-                  <div className="title-area">
-                    <h4 className="title">영상 디자인</h4>
-                    <h5 className="subtitle">Visual Story Architecture</h5>
-                  </div>
-                  <div className="list">
-                    Visual Design ㅣ Infographics <br />
-                    Motion Graphic
-                  </div>
-                </div>
-              </div>
-            </li>
-            {/* 5 */}
-            <li className="process-item">
-              <div className="item-inner">
-                <div className="line-area">
-                  <span className="circle"></span>
-                  <span className="line"></span>
-                </div>
-                <div className="text-area">
-                  <div className="title-area">
-                    <h4 className="title">촬영</h4>
-                    <h5 className="subtitle">Filming</h5>
-                  </div>
-                  <div className="list">
-                    Video Shooting / Filming
-                  </div>
-                </div>
-              </div>
-            </li>
-            {/* 6 */}
-            <li className="process-item">
-              <div className="item-inner">
-                <div className="line-area">
-                  <span className="circle"></span>
-                  <span className="line"></span>
-                </div>
-                <div className="text-area">
-                  <div className="title-area">
-                    <h4 className="title">AI 종합 편집</h4>
-                    <h5 className="subtitle">AI Integrated Editing</h5>
-                  </div>
-                  <div className="list">
-                    Post Production ㅣ Video Editing <br />
-                    AI-Powered Editi
-                  </div>
-                </div>
-              </div>
-            </li>
-            {/* 7 */}
-            <li className="process-item">
-              <div className="item-inner">
-                <div className="line-area">
-                  <span className="circle"></span>
-                  <span className="line"></span>
-                </div>
-                <div className="text-area">
-                  <div className="title-area">
-                    <h4 className="title">오디오 편집</h4>
-                    <h5 className="subtitle">Audio Editing</h5>
-                  </div>
-                  <div className="list">
-                    Sound Design ㅣ Audio Editing  <br />
-                    Narrative Sound Crafting
-                  </div>
-                </div>
-              </div>
-            </li>
-            {/* 8 */}
-            <li className="process-item">
-              <div className="item-inner">
-                <div className="line-area">
-                  <span className="circle"></span>
-                  <span className="line"></span>
-                </div>
-                <div className="text-area">
-                  <div className="title-area">
-                    <h4 className="title">최종 납품</h4>
-                    <h5 className="subtitle">Final Delivery</h5>
-                  </div>
-                  <div className="list">
-                    Final Delivery ㅣ Video Export
-                  </div>
-                </div>
-              </div>
-            </li>
+              </li>
+            ))}
           </ul>
         </div>
 
-        <div className="process-steps-ocr">
+        <div className="process-steps">
           {processData.map((step, index) => (
             <div
               key={`step_${index}`}
               ref={(el) => (stepsRef.current[index] = el)}
-              className={`step-ocr ${activeSteps[index] ? "active" : ""}`}
+              className={`step ${activeSteps[index] ? "active" : ""}`}
             >
               <h4 dangerouslySetInnerHTML={{ __html: step.enTitle }} />
-              <div className="step-content-ocr">
-                <p className="step-number-ocr" dangerouslySetInnerHTML={{ __html: step.koTitle }} />
-                <div className="step-description-ocr">
+              <div className="step-content">
+                <div className="step-title-area">
+                  <p className="step-title">
+                    <span dangerouslySetInnerHTML={{ __html: `0${index+1}. ${step.koTitle}` }}></span>
+                    {step.subTitle && (
+                      <span dangerouslySetInnerHTML={{ __html: ` (${step.subTitle})` }}></span>
+                    )}
+                  </p>
+                  <p className="step-desc" dangerouslySetInnerHTML={{ __html: step.description }}></p>
+                </div>
+                <div className="step-text">
                   <p className="ko-ocr" dangerouslySetInnerHTML={{ __html: step.ko }} />
                   <p className="en-ocr" dangerouslySetInnerHTML={{ __html: step.en }} />
                 </div>

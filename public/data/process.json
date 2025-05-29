@@ -9,7 +9,8 @@
   },
   {
     "enTitle": "Content Planning",
-    "koTitle": "영상콘텐츠 기획 (컨셉 & 아이디에이션)",
+    "koTitle": "영상콘텐츠 기획",
+    "subTitle": "컨셉 & 아이디에이션",
     "description": "상상은 구체적으로, 아이디어는 전략적으로",
     "keywords": "Video Planning ㅣ Concept & Ideation",
     "ko": "영상의 방향성과 핵심 메시지를 설정합니다. <br />콘셉트부터 아이디어까지, 우리의 상상이 현실이 됩니다.",
@@ -25,26 +26,43 @@
   },
   {
     "enTitle": "Visual Story <br />Architecture",
-    "koTitle": "디자인 (비주얼라이제이션 & 인포그래픽)",
+    "koTitle": "디자인",
+    "subTitle": "비주얼라이제이션 & 인포그래픽",
     "description": "영상의 인상을 결정짓는 디자인",
-    "keywords": "",
+    "keywords": "Visual Design ㅣ Infographics <br />Motion Graphic",
     "ko": "브랜드 컬러, 시각디자인, 인포그래픽으로 <br />메시지를 시각화하고 영상에 적합한 <br />그래픽, 인포그래픽, 비주얼 스타일을 만듭니다.",
-    "en": "We visualize your message through <br />brand colors, design, and infographics, <br />creating graphics and visual styles tailored to your video."
+    "en": "We vWe visualize your message through <br />brand colors, design, and infographics, <br />crcreating graphics and visual styles tailored to your video."
   },
   {
     "enTitle": "Filming",
     "koTitle": "촬영",
     "description": "현장의 감도, 메시지의 실체화",
-    "keywords": "",
+    "keywords": "Video Shooting ㅣ Filming",
     "ko": "카메라가 켜지는 순간, 이야기가 시작됩니다. <br />산업 현장, 시공간을 초월한 메시지 그리고 공기까지 <br />기획된 내용에 따라 실제 촬영을 진행합니다.",
-    "en": "A clear message starts with a carefully crafted scene. <br />We design the visual flow and structure of your video."
+    "en": "The story begins as the camera rolls. <br />From industrial sites to timeless messages and even the air— <br />we film according to a precise plan."
   },
   {
-    "enTitle": "Filming",
-    "koTitle": "06. 촬영",
-    "description": "",
-    "keywords": "",
-    "ko": "한 장면, 한 장면이 치밀하게 짜여야 메시지는 더 선명해집니다. <br />영상 흐름을 시각적으로 설계하고, 전체 구조를 구체화합니다.",
-    "en": "We create high-quality videos using expert technique <br />and advanced equipment, capturing every detail with precision."
+    "enTitle": "AI Integrated Editing",
+    "koTitle": "AI 종합 편집",
+    "description": "촬영 영상, 디자인 소스, 오디오 요소까지",
+    "keywords": "Post Production ㅣ Video Editing <br />AI-Powered Editi",
+    "ko": "모든 클립을 AI 기반 편집 시스템으로 빠르고 정확하게 구성합니다. <br />스토리 흐름에 따라 자동화와 크리에이티브가 조화를 이루며 <br />하나의 완성도 높은 이야기로 탄생합니다.",
+    "en": "All clips are swiftly and accurately edited with AI. <br />Automation and creativity align with the story's flow, <br />forming a polished and compelling narrative."
+  },
+  {
+    "enTitle": "Audio Editing",
+    "koTitle": "오디오 편집",
+    "description": "귀를 사로잡는 사운드 디자인",
+    "keywords": "Sound Design ㅣ Audio Editing <br />Narrative Sound Crafting",
+    "ko": "BGM, 성우 나레이션, 효과음 하나하나까지 <br />사운드 디자인은 단순한 배경이 아닌, <br />영상의 분위기를 조율하고 몰입도를 만드는 디테일로 완성합니다.",
+    "en": "From BGM, voice-over narration, to every sound effect, <br />sound design is not just background, but a detail that shapes— <br />the mood and completes the immersion."
+  },
+  {
+    "enTitle": "Final Delivery",
+    "koTitle": "최종 납품",
+    "description": "영상의 완성, 세상으로 나가는 콘텐츠",
+    "keywords": "Final Delivery ㅣ Video Export",
+    "ko": "완성된 영상은 고객의 손에 전달됩니다. <br />영상은 끝났지만, 그 안의 메시지는 지금부터 시작입니다.",
+    "en": "The finished video is delivered to the client. <br />Though the video ends, the message within begins now."
   }
 ]
