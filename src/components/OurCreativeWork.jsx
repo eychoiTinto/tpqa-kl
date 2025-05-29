@@ -64,7 +64,7 @@ function OurCreativeWork({scrollY, standard}) {
 
       setActiveSteps(updated);
     }, {
-      threshold: 0.5, // 살짝이라도 보이면 감지
+      threshold: 0.7, // 살짝이라도 보이면 감지
     });
 
     stepsRef.current.forEach((step) => {
